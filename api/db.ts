@@ -328,8 +328,12 @@ export async function initDb() {
     const questionColumnNames = questionColumns.map((c: any) => c.name);
 
     if (!questionColumnNames.includes('dimension_ids')) {
-      await database.run(`ALTER TABLE questions ADD COLUMN dimension_ids TEXT`);
-      console.log('[DB Migration] Added dimension_ids column to questions');
+      try {
+        await database.run(`ALTER TABLE questions ADD COLUMN dimension_ids TEXT`);
+        console.log('[DB Migration] Added dimension_ids column to questions');
+      } catch (e: any) {
+        console.log(`[DB Migration] dimension_ids column already exists or error: ${e.message}`);
+      }
     }
 
     // exam_records 表
@@ -337,16 +341,28 @@ export async function initDb() {
     const examColumnNames = examColumns.map((c: any) => c.name);
 
     if (!examColumnNames.includes('cheat_flags')) {
-      await database.run(`ALTER TABLE exam_records ADD COLUMN cheat_flags TEXT`);
-      console.log('[DB Migration] Added cheat_flags column to exam_records');
+      try {
+        await database.run(`ALTER TABLE exam_records ADD COLUMN cheat_flags TEXT`);
+        console.log('[DB Migration] Added cheat_flags column to exam_records');
+      } catch (e: any) {
+        console.log(`[DB Migration] cheat_flags column already exists or error: ${e.message}`);
+      }
     }
     if (!examColumnNames.includes('tab_switch_count')) {
-      await database.run(`ALTER TABLE exam_records ADD COLUMN tab_switch_count INTEGER DEFAULT 0`);
-      console.log('[DB Migration] Added tab_switch_count column to exam_records');
+      try {
+        await database.run(`ALTER TABLE exam_records ADD COLUMN tab_switch_count INTEGER DEFAULT 0`);
+        console.log('[DB Migration] Added tab_switch_count column to exam_records');
+      } catch (e: any) {
+        console.log(`[DB Migration] tab_switch_count column already exists or error: ${e.message}`);
+      }
     }
     if (!examColumnNames.includes('question_times')) {
-      await database.run(`ALTER TABLE exam_records ADD COLUMN question_times TEXT`);
-      console.log('[DB Migration] Added question_times column to exam_records');
+      try {
+        await database.run(`ALTER TABLE exam_records ADD COLUMN question_times TEXT`);
+        console.log('[DB Migration] Added question_times column to exam_records');
+      } catch (e: any) {
+        console.log(`[DB Migration] question_times column already exists or error: ${e.message}`);
+      }
     }
 
     // notice_templates 表
