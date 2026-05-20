@@ -233,7 +233,7 @@ router.get('/:id/usage', authMiddleware, async (req, res) => {
 router.post('/ai-generate', authMiddleware, async (req, res) => {
   try {
     const { courseType, grade, knowledgePoint, difficulty } = req.body;
-    const kps = knowledgePoint ? [knowledgePoint] : (KNOWLEDGE_POINTS[courseType || 'math']?.[grade || '3-4'] || ['基础练习']);
+    const kps = knowledgePoint ? [knowledgePoint] : ((KNOWLEDGE_POINTS as any)[courseType || 'math']?.[grade || '3-4'] || ['基础练习']);
     const questions = await questionGenerator.generateBatch(
       courseType || 'math',
       grade || '3-4',
@@ -356,7 +356,7 @@ router.post('/full-regenerate', authMiddleware, async (req, res) => {
 
       for (const task of plan) {
         for (const diff of task.difficulty) {
-          const kps = KNOWLEDGE_POINTS[task.courseType as keyof typeof KNOWLEDGE_POINTS]?.[task.gradeRange as keyof any] || [];
+          const kps = ((KNOWLEDGE_POINTS as any)[task.courseType])?.[task.gradeRange] || [];
           if (kps.length === 0) continue;
 
           try {

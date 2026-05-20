@@ -834,7 +834,7 @@ export function getDimensionDistribution(
   gradeRange: string,
   totalQuestions: number
 ): Record<string, number> {
-  const weights = COURSE_WEIGHTS[courseType as keyof typeof COURSE_WEIGHTS]?.[gradeRange as keyof any];
+  const weights = ((COURSE_WEIGHTS as any)[courseType])?.[gradeRange];
   if (!weights) {
     // 默认均匀分配
     const perCategory = Math.max(1, Math.floor(totalQuestions / 6));

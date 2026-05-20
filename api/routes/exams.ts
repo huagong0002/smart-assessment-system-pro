@@ -1075,7 +1075,7 @@ router.post('/:id/submit', authMiddleware, async (req: AuthRequest, res) => {
     // 更新学生能力画像和成长历史（使用维度代码聚合的数据）
     try {
       await updateStudentAbilityProfile(student.id, exam.course_type, student.grade, dimensionScoresByCode);
-      await saveGrowthHistory(student.id, exam.course_type, recordId, dimensionScoresByCode);
+      await saveGrowthHistory(student.id, exam.course_type, recordId!, dimensionScoresByCode);
       console.log(`[Submit] Updated student ability profile for student_id=${student.id}`);
     } catch (profileErr) {
       console.error(`[Submit] Failed to update student profile:`, profileErr);

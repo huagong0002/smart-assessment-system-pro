@@ -1,4 +1,4 @@
-import { getDb } from '../db';
+import { getDb } from '../db.js';
 
 export const migrationService = {
   /**
@@ -170,7 +170,7 @@ export const migrationService = {
     
     for (const [category, dataRaw] of Object.entries(scores)) {
       const data = dataRaw as { correct: number; total: number };
-      const categoryDims = dimensions.filter(d => d.category === category);
+      const categoryDims = dimensions.filter((d: { category: string }) => d.category === category);
       const perDimTotal = Math.ceil(data.total / Math.max(categoryDims.length, 1));
       
       for (const dim of categoryDims) {
