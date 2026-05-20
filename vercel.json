@@ -1,12 +1,13 @@
 {
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/api/index"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
+  "functions": {
+    "api/**/*.{ts,js}": {
+      "runtime": "vercel-ignore"
     }
-  ]
+  },
+  "buildCommand": "npm run build",
+  "installCommand": "npm ci",
+  "outputDirectory": "dist",
+  "env": {
+    "VITE_API_URL": "https://smart-assessment-api.onrender.com"
+  }
 }
