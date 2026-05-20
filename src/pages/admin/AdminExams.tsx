@@ -1005,7 +1005,7 @@ export default function AdminExams() {
                 <label className="block text-sm font-medium text-slate-700 mb-1">课程类型</label>
                 <select
                   value={createForm.course_type}
-                  onChange={(e) => setCreateForm({ ...createForm, course_type: e.target.value as const })}
+                  onChange={(e) => setCreateForm({ ...createForm, course_type: e.target.value as typeof createForm.course_type })}
                   className="input-field"
                 >
                   <option value="math">数理逻辑</option>

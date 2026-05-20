@@ -192,7 +192,7 @@ router.post('/batch', authMiddleware, async (req, res) => {
 
     res.json({
       success: true,
-      success: successCount,
+      created: successCount,
       failed: questions.length - successCount,
       errors: errors.slice(0, 10)
     });
