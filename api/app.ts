@@ -59,6 +59,11 @@ app.use('/api/knowledge', knowledgeRoutes)
 app.use('/api/certificates', certificatesRoutes)
 app.use('/api/faq', faqRoutes)
 
+// Health check endpoint
+app.get('/api/health', (req: Request, res: Response) => {
+  res.json({ status: 'ok', timestamp: new Date().toISOString() })
+})
+
 // 迁移API
 app.post('/api/migrate', authMiddleware, async (req: any, res) => {
   try {

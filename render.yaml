@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: smart-assessment-api
+    env: docker
+    region: singapore
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        value: ./data/database.sqlite
+    disk:
+      name: data
+      mountPath: /app/data
+      sizeGB: 1
