@@ -1,0 +1,9 @@
+# 忽略后端 API 目录（已部署到 Render）
+api/
+
+# 其他忽略文件
+node_modules/
+dist/
+.env
+.env.local
+.git/
