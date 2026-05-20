@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { examApi, configApi } from '../../api/client';
+import { examApi, configApi } from '../../api-client/client';
 import {
   Search, Eye, X, ClipboardList, FileText, Star, Settings, Save, Check,
   SlidersHorizontal, BarChart3, Sparkles, Users, Plus, Edit3, Trash2
@@ -43,13 +43,13 @@ const defaultConfig: ExamConfig = {
 const reportTemplates = [
   { value: 'default', label: '默认模板' },
   { value: 'detailed', label: '详细分析报告' },
-  { value: 'simple', label: '简洁报告' },
-  { value: 'parent', label: '家长版报告' },
+  { value: 'simple', label: '简洁报�? },
+  { value: 'parent', label: '家长版报�? },
 ];
 
 const dimensionLabels: Record<string, string> = {
   dimension_cognitive_weight: '认知能力',
-  dimension_skill_weight: '技能水平',
+  dimension_skill_weight: '技能水�?,
   dimension_quality_weight: '素质素养',
   dimension_innovation_weight: '创新能力',
   dimension_collaboration_weight: '协作能力',
@@ -125,7 +125,7 @@ export default function AdminExams() {
 
   const handleCreateExam = async () => {
     if (!createForm.name.trim()) {
-      alert('请输入试卷名称');
+      alert('请输入试卷名�?);
       return;
     }
     
@@ -154,7 +154,7 @@ export default function AdminExams() {
   };
 
   const handleDelete = async (id: number) => {
-    if (!confirm('确定要删除这份试卷吗？')) return;
+    if (!confirm('确定要删除这份试卷吗�?)) return;
     try {
       await examApi.delete(id);
       loadExams();
@@ -175,7 +175,7 @@ export default function AdminExams() {
   };
 
   const handleBatchDelete = async () => {
-    if (!confirm(`确定要删除选中的 ${selectedIds.length} 份试卷吗？`)) return;
+    if (!confirm(`确定要删除选中�?${selectedIds.length} 份试卷吗？`)) return;
     try {
       for (const id of selectedIds) {
         await examApi.delete(id);
@@ -190,7 +190,7 @@ export default function AdminExams() {
 
   const handleUpdateExam = async () => {
     if (!editingExam || !editingExam.name.trim()) {
-      alert('请输入试卷名称');
+      alert('请输入试卷名�?);
       return;
     }
     
@@ -269,8 +269,8 @@ export default function AdminExams() {
     if (!names) return '-';
     const nameList = names.split(',').filter(Boolean);
     if (nameList.length === 0) return '-';
-    if (nameList.length <= 2) return nameList.join('、');
-    return `${nameList.slice(0, 2).join('、')} 等${count}人`;
+    if (nameList.length <= 2) return nameList.join('�?);
+    return `${nameList.slice(0, 2).join('�?)} �?{count}人`;
   };
 
   const formatScoreRange = (min: number | null, max: number | null, count: number) => {
@@ -285,7 +285,7 @@ export default function AdminExams() {
   ];
 
   const configTabs = [
-    { key: 'levels' as const, label: '等级分数线', icon: <BarChart3 size={16} /> },
+    { key: 'levels' as const, label: '等级分数�?, icon: <BarChart3 size={16} /> },
     { key: 'default' as const, label: '默认配置', icon: <SlidersHorizontal size={16} /> },
     { key: 'dimensions' as const, label: '维度权重', icon: <Settings size={16} /> },
     { key: 'report' as const, label: '报告配置', icon: <FileText size={16} /> },
@@ -372,11 +372,11 @@ export default function AdminExams() {
               </div>
             ) : (
               <div className="overflow-x-auto">
-                {/* 批量操作栏 */}
+                {/* 批量操作�?*/}
                 {selectedIds.length > 0 && (
                   <div className="flex items-center justify-between mb-4 p-3 bg-blue-50 rounded-xl">
                     <div className="flex items-center gap-3">
-                      <span className="text-sm text-blue-700">已选择 <strong>{selectedIds.length}</strong> 份试卷</span>
+                      <span className="text-sm text-blue-700">已选择 <strong>{selectedIds.length}</strong> 份试�?/span>
                       <button
                         onClick={() => setSelectedIds([])}
                         className="text-sm text-blue-600 hover:text-blue-800"
@@ -408,8 +408,8 @@ export default function AdminExams() {
                       <th className="pb-3 font-medium">测评试卷</th>
                       <th className="pb-3 font-medium">课程类型</th>
                       <th className="pb-3 font-medium">年级</th>
-                      <th className="pb-3 font-medium">题目数</th>
-                      <th className="pb-3 font-medium">测评人</th>
+                      <th className="pb-3 font-medium">题目�?/th>
+                      <th className="pb-3 font-medium">测评�?/th>
                       <th className="pb-3 font-medium">测评结果</th>
                       <th className="pb-3 font-medium">创建时间</th>
                       <th className="pb-3 font-medium">操作</th>
@@ -444,7 +444,7 @@ export default function AdminExams() {
                             </span>
                           </td>
                           <td className="py-3 text-sm text-slate-600">{exam.grade}年级</td>
-                          <td className="py-3 text-sm text-slate-600">{exam.question_count}道</td>
+                          <td className="py-3 text-sm text-slate-600">{exam.question_count}�?/td>
                           <td className="py-3 text-sm text-slate-600 max-w-[120px] truncate" title={exam.student_names || ''}>
                             {formatStudentNames(exam.student_names, exam.record_count)}
                           </td>
@@ -500,7 +500,7 @@ export default function AdminExams() {
               </div>
               <div>
                 <h2 className="text-lg font-bold text-slate-800">测评配置</h2>
-                <p className="text-sm text-slate-500">配置测评系统的各项参数</p>
+                <p className="text-sm text-slate-500">配置测评系统的各项参�?/p>
               </div>
             </div>
             <button
@@ -509,7 +509,7 @@ export default function AdminExams() {
               className="btn-primary py-2 px-4 flex items-center gap-2 disabled:opacity-50"
             >
               <Save size={16} />
-              {saving ? '保存中...' : '保存配置'}
+              {saving ? '保存�?..' : '保存配置'}
             </button>
           </div>
 
@@ -539,7 +539,7 @@ export default function AdminExams() {
           </div>
 
           <div className="glass-card rounded-3xl p-6 lg:p-8">
-            {/* 等级分数线 */}
+            {/* 等级分数�?*/}
             {configTab === 'levels' && (
               <div className="space-y-6">
                 <div className="flex items-center gap-3 mb-4">
@@ -547,46 +547,46 @@ export default function AdminExams() {
                     <BarChart3 className="text-blue-600" size={20} />
                   </div>
                   <div>
-                    <h2 className="text-lg font-bold text-slate-800">能力等级分数线</h2>
-                    <p className="text-sm text-slate-500">设置测评结果的能力等级划分标准</p>
+                    <h2 className="text-lg font-bold text-slate-800">能力等级分数�?/h2>
+                    <p className="text-sm text-slate-500">设置测评结果的能力等级划分标�?/p>
                   </div>
                 </div>
 
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
-                    <div className="w-16 px-2 py-1 bg-emerald-100 text-emerald-600 text-xs font-bold rounded-lg text-center">A级</div>
+                    <div className="w-16 px-2 py-1 bg-emerald-100 text-emerald-600 text-xs font-bold rounded-lg text-center">A�?/div>
                     <div className="flex-1">
-                      <label className="block text-xs text-slate-500 mb-1">最低分数</label>
+                      <label className="block text-xs text-slate-500 mb-1">最低分�?/label>
                       <input type="number" value={config.level_a_min} onChange={(e) => updateConfig('level_a_min', e.target.value)} className="input-field" min={0} max={100} />
                     </div>
-                    <span className="text-sm text-slate-500">{config.level_a_min}-100分</span>
+                    <span className="text-sm text-slate-500">{config.level_a_min}-100�?/span>
                   </div>
 
                   <div className="flex items-center gap-4">
-                    <div className="w-16 px-2 py-1 bg-blue-100 text-blue-600 text-xs font-bold rounded-lg text-center">B级</div>
+                    <div className="w-16 px-2 py-1 bg-blue-100 text-blue-600 text-xs font-bold rounded-lg text-center">B�?/div>
                     <div className="flex-1">
-                      <label className="block text-xs text-slate-500 mb-1">最低分数</label>
+                      <label className="block text-xs text-slate-500 mb-1">最低分�?/label>
                       <input type="number" value={config.level_b_min} onChange={(e) => updateConfig('level_b_min', e.target.value)} className="input-field" min={0} max={100} />
                     </div>
-                    <span className="text-sm text-slate-500">{config.level_b_min}-{parseInt(config.level_a_min) - 1}分</span>
+                    <span className="text-sm text-slate-500">{config.level_b_min}-{parseInt(config.level_a_min) - 1}�?/span>
                   </div>
 
                   <div className="flex items-center gap-4">
-                    <div className="w-16 px-2 py-1 bg-amber-100 text-amber-600 text-xs font-bold rounded-lg text-center">C级</div>
+                    <div className="w-16 px-2 py-1 bg-amber-100 text-amber-600 text-xs font-bold rounded-lg text-center">C�?/div>
                     <div className="flex-1">
-                      <label className="block text-xs text-slate-500 mb-1">最低分数</label>
+                      <label className="block text-xs text-slate-500 mb-1">最低分�?/label>
                       <input type="number" value={config.level_c_min} onChange={(e) => updateConfig('level_c_min', e.target.value)} className="input-field" min={0} max={100} />
                     </div>
-                    <span className="text-sm text-slate-500">{config.level_c_min}-{parseInt(config.level_b_min) - 1}分</span>
+                    <span className="text-sm text-slate-500">{config.level_c_min}-{parseInt(config.level_b_min) - 1}�?/span>
                   </div>
 
                   <div className="flex items-center gap-4">
-                    <div className="w-16 px-2 py-1 bg-red-100 text-red-600 text-xs font-bold rounded-lg text-center">D级</div>
+                    <div className="w-16 px-2 py-1 bg-red-100 text-red-600 text-xs font-bold rounded-lg text-center">D�?/div>
                     <div className="flex-1">
-                      <label className="block text-xs text-slate-500 mb-1">最高分数</label>
+                      <label className="block text-xs text-slate-500 mb-1">最高分�?/label>
                       <input type="number" value={config.level_d_max} onChange={(e) => updateConfig('level_d_max', e.target.value)} className="input-field" min={0} max={100} />
                     </div>
-                    <span className="text-sm text-slate-500">0-{config.level_d_max}分</span>
+                    <span className="text-sm text-slate-500">0-{config.level_d_max}�?/span>
                   </div>
                 </div>
               </div>
@@ -614,7 +614,7 @@ export default function AdminExams() {
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-1">时间限制（分钟）</label>
                     <input type="number" value={config.default_time_limit} onChange={(e) => updateConfig('default_time_limit', e.target.value)} className="input-field" min={10} max={180} />
-                    <p className="text-xs text-slate-400 mt-1">测评时间限制，范围 10-180 分钟</p>
+                    <p className="text-xs text-slate-400 mt-1">测评时间限制，范�?10-180 分钟</p>
                   </div>
                 </div>
               </div>
@@ -629,7 +629,7 @@ export default function AdminExams() {
                   </div>
                   <div>
                     <h2 className="text-lg font-bold text-slate-800">能力维度权重</h2>
-                    <p className="text-sm text-slate-500">配置六大能力维度在测评中的权重占比</p>
+                    <p className="text-sm text-slate-500">配置六大能力维度在测评中的权重占�?/p>
                   </div>
                 </div>
 
@@ -638,7 +638,7 @@ export default function AdminExams() {
                     ? 'bg-emerald-50 text-emerald-600 border border-emerald-200'
                     : 'bg-amber-50 text-amber-600 border border-amber-200'
                 }`}>
-                  当前总权重: {getTotalWeight()}% {getTotalWeight() === 100 ? '✓' : '(应为100%)'}
+                  当前总权�? {getTotalWeight()}% {getTotalWeight() === 100 ? '�? : '(应为100%)'}
                 </div>
 
                 <div className="space-y-4">
@@ -697,8 +697,8 @@ export default function AdminExams() {
                     <label className="flex items-center gap-3 p-3 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
                       <input type="checkbox" checked={config.report_include_radar === 'true'} onChange={(e) => updateConfig('report_include_radar', String(e.target.checked))} className="w-5 h-5 text-blue-600 rounded border-slate-300 focus:ring-blue-500" />
                       <div>
-                        <div className="text-sm font-medium text-slate-700">包含雷达图</div>
-                        <div className="text-xs text-slate-500">在报告中展示能力维度雷达图</div>
+                        <div className="text-sm font-medium text-slate-700">包含雷达�?/div>
+                        <div className="text-xs text-slate-500">在报告中展示能力维度雷达�?/div>
                       </div>
                     </label>
 
@@ -706,7 +706,7 @@ export default function AdminExams() {
                       <input type="checkbox" checked={config.report_include_growth === 'true'} onChange={(e) => updateConfig('report_include_growth', String(e.target.checked))} className="w-5 h-5 text-blue-600 rounded border-slate-300 focus:ring-blue-500" />
                       <div>
                         <div className="text-sm font-medium text-slate-700">包含成长趋势</div>
-                        <div className="text-xs text-slate-500">展示历次测评的成长变化曲线</div>
+                        <div className="text-xs text-slate-500">展示历次测评的成长变化曲�?/div>
                       </div>
                     </label>
 
@@ -731,7 +731,7 @@ export default function AdminExams() {
                   </div>
                   <div>
                     <h2 className="text-lg font-bold text-slate-800">AI配置</h2>
-                    <p className="text-sm text-slate-500">配置AI辅助功能开关</p>
+                    <p className="text-sm text-slate-500">配置AI辅助功能开�?/p>
                   </div>
                 </div>
 
@@ -748,7 +748,7 @@ export default function AdminExams() {
                     <input type="checkbox" checked={config.ai_review_enabled === 'true'} onChange={(e) => updateConfig('ai_review_enabled', String(e.target.checked))} className="w-5 h-5 text-blue-600 rounded border-slate-300 focus:ring-blue-500" />
                     <div>
                       <div className="text-sm font-medium text-slate-700">AI题目审核</div>
-                      <div className="text-xs text-slate-500">使用AI审核题目质量和准确性</div>
+                      <div className="text-xs text-slate-500">使用AI审核题目质量和准确�?/div>
                     </div>
                   </label>
                 </div>
@@ -766,8 +766,7 @@ export default function AdminExams() {
               <div>
                 <h2 className="text-xl font-bold text-slate-800">{previewExam.name}</h2>
                 <p className="text-sm text-slate-500 mt-1">
-                  试卷ID: {previewExam.id} | {courseTypeLabels[previewExam.course_type]?.text || previewExam.course_type} | {previewExam.grade}年级 | {previewExam.question_count}题 | 总分{previewExam.total_score}分 | 限时{previewExam.time_limit}分钟 | 已测{previewRecords.length}人
-                </p>
+                  试卷ID: {previewExam.id} | {courseTypeLabels[previewExam.course_type]?.text || previewExam.course_type} | {previewExam.grade}年级 | {previewExam.question_count}�?| 总分{previewExam.total_score}�?| 限时{previewExam.time_limit}分钟 | 已测{previewRecords.length}�?                </p>
               </div>
               <button
                 onClick={() => { setPreviewExam(null); setPreviewQuestions([]); setPreviewRecords([]); }}
@@ -810,7 +809,7 @@ export default function AdminExams() {
                 previewQuestions.length === 0 ? (
                   <div className="text-center py-12 text-slate-400">
                     <FileText className="mx-auto mb-2" size={32} />
-                    <p>该试卷暂无题目</p>
+                    <p>该试卷暂无题�?/p>
                   </div>
                 ) : (
                   <div className="space-y-6">
@@ -824,8 +823,7 @@ export default function AdminExams() {
                           <span className="text-sm font-medium text-slate-700">{q.content}</span>
                         </div>
                         <span className="shrink-0 px-2 py-1 bg-amber-50 text-amber-600 rounded-lg text-xs font-medium">
-                          {q.exam_score}分
-                        </span>
+                          {q.exam_score}�?                        </span>
                       </div>
 
                       <div className="space-y-2 ml-9">
@@ -856,7 +854,7 @@ export default function AdminExams() {
                       </div>
 
                       <div className="flex flex-wrap items-center gap-3 mt-3 ml-9 text-xs text-slate-500">
-                        <span className="px-2 py-1 bg-slate-100 rounded-md">{q.knowledge_point || '未分类'}</span>
+                        <span className="px-2 py-1 bg-slate-100 rounded-md">{q.knowledge_point || '未分�?}</span>
                         <span className="flex items-center gap-1">难度: {renderDifficultyStars(q.difficulty)}</span>
                         <span>题目ID: {q.id}</span>
                       </div>
@@ -913,9 +911,9 @@ export default function AdminExams() {
                             </div>
                           </div>
                           <div className="flex items-center gap-3">
-                            <span className="text-sm font-medium text-slate-600">得分: <span className="text-blue-600 font-bold">{record.score}分</span></span>
+                            <span className="text-sm font-medium text-slate-600">得分: <span className="text-blue-600 font-bold">{record.score}�?/span></span>
                             <span className="px-2 py-1 bg-amber-50 text-amber-600 rounded-lg text-xs font-medium">{record.level || '-'}</span>
-                            <span className="text-xs text-slate-400">用时: {Math.floor((record.duration || 0) / 60)}分{(record.duration || 0) % 60}秒</span>
+                            <span className="text-xs text-slate-400">用时: {Math.floor((record.duration || 0) / 60)}分{(record.duration || 0) % 60}�?/span>
                           </div>
                         </div>
 
@@ -937,13 +935,13 @@ export default function AdminExams() {
                                       <p className="text-sm text-slate-700 font-medium">{question ? question.content : `题目${ans.sequence}`}</p>
                                       <div className="flex flex-wrap items-center gap-4 mt-2 text-xs">
                                         <span className={ans.isCorrect ? 'text-emerald-600' : 'text-red-600'}>
-                                          学生答案: <strong>{ans.studentAnswer || '未作答'}</strong>
+                                          学生答案: <strong>{ans.studentAnswer || '未作�?}</strong>
                                         </span>
                                         <span className="text-slate-500">
                                           正确答案: <strong className="text-emerald-600">{ans.correctAnswer}</strong>
                                         </span>
                                         <span className="text-slate-500">
-                                          得分: <strong>{ans.score}分</strong>
+                                          得分: <strong>{ans.score}�?/strong>
                                         </span>
                                       </div>
                                       {/* Show option text if available */}
@@ -998,7 +996,7 @@ export default function AdminExams() {
                   onChange={(e) => setCreateForm({ ...createForm, name: e.target.value })}
                   className="input-field"
                   required
-                  placeholder="请输入试卷名称"
+                  placeholder="请输入试卷名�?
                 />
               </div>
               <div>
@@ -1054,7 +1052,7 @@ export default function AdminExams() {
               <div className="flex gap-3 justify-end pt-4">
                 <button type="button" onClick={() => setShowCreateModal(false)} className="btn-secondary">取消</button>
                 <button type="submit" className="btn-primary" disabled={creating}>
-                  {creating ? '创建中...' : '创建试卷'}
+                  {creating ? '创建�?..' : '创建试卷'}
                 </button>
               </div>
             </form>
@@ -1076,7 +1074,7 @@ export default function AdminExams() {
                   onChange={(e) => setEditingExam({ ...editingExam, name: e.target.value })}
                   className="input-field"
                   required
-                  placeholder="请输入试卷名称"
+                  placeholder="请输入试卷名�?
                 />
               </div>
               <div>
@@ -1121,7 +1119,7 @@ export default function AdminExams() {
               <div className="flex gap-3 justify-end pt-4">
                 <button type="button" onClick={() => setShowEditModal(false)} className="btn-secondary">取消</button>
                 <button type="submit" className="btn-primary" disabled={editing}>
-                  {editing ? '更新中...' : '保存修改'}
+                  {editing ? '更新�?..' : '保存修改'}
                 </button>
               </div>
             </form>

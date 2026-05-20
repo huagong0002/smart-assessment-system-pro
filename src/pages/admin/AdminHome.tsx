@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { dashboardApi, examApi } from '../../api/client';
+import { dashboardApi, examApi } from '../../api-client/client';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -109,22 +109,22 @@ export default function AdminHome() {
         <div className="glass-card rounded-3xl p-6 text-center">
           <Users className="mx-auto text-blue-500 mb-2" size={24} />
           <p className="text-2xl font-bold text-slate-800">{stats.totalStudents || 0}</p>
-          <p className="text-xs text-slate-500 mt-1">学生数</p>
+          <p className="text-xs text-slate-500 mt-1">学生�?/p>
         </div>
         <div className="glass-card rounded-3xl p-6 text-center">
           <Users className="mx-auto text-purple-500 mb-2" size={24} />
           <p className="text-2xl font-bold text-slate-800">{stats.totalTeachers || 0}</p>
-          <p className="text-xs text-slate-500 mt-1">教师数</p>
+          <p className="text-xs text-slate-500 mt-1">教师�?/p>
         </div>
         <div className="glass-card rounded-3xl p-6 text-center">
           <BookOpen className="mx-auto text-emerald-500 mb-2" size={24} />
           <p className="text-2xl font-bold text-slate-800">{stats.totalQuestions || 0}</p>
-          <p className="text-xs text-slate-500 mt-1">题目数</p>
+          <p className="text-xs text-slate-500 mt-1">题目�?/p>
         </div>
         <div className="glass-card rounded-3xl p-6 text-center">
           <ClipboardList className="mx-auto text-amber-500 mb-2" size={24} />
           <p className="text-2xl font-bold text-slate-800">{stats.totalExams || 0}</p>
-          <p className="text-xs text-slate-500 mt-1">试卷数</p>
+          <p className="text-xs text-slate-500 mt-1">试卷�?/p>
         </div>
         <div className="glass-card rounded-3xl p-6 text-center">
           <Award className="mx-auto text-red-500 mb-2" size={24} />
@@ -151,7 +151,7 @@ export default function AdminHome() {
         </div>
 
         <div className="glass-card rounded-3xl p-6">
-          <h3 className="text-lg font-bold text-slate-800 mb-4">最近测评成绩</h3>
+          <h3 className="text-lg font-bold text-slate-800 mb-4">最近测评成�?/h3>
           <Bar
             data={barData}
             options={{
@@ -171,7 +171,7 @@ export default function AdminHome() {
           <div className="glass-card rounded-3xl p-6">
             <div className="flex items-center gap-2 mb-4">
               <Calendar size={18} className="text-blue-500" />
-              <h3 className="text-lg font-bold text-slate-800">30天测评趋势</h3>
+              <h3 className="text-lg font-bold text-slate-800">30天测评趋�?/h3>
             </div>
             <Line
               data={{
@@ -225,7 +225,7 @@ export default function AdminHome() {
       )}
 
       <div className="glass-card rounded-3xl p-6">
-        <h3 className="text-lg font-bold text-slate-800 mb-4">最近测评记录</h3>
+        <h3 className="text-lg font-bold text-slate-800 mb-4">最近测评记�?/h3>
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>

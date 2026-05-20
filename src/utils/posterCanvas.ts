@@ -209,7 +209,7 @@ export function renderPoster(
   ctx.fillStyle = template.primaryColor;
   ctx.font = `bold 32px ${template.fontFamily}`;
   ctx.textAlign = 'center';
-  ctx.fillText('录取通知书', width / 2, y);
+  ctx.fillText('录取通知�?, width / 2, y);
 
   y += 25;
   drawDecorativePattern(ctx, template, width, y);
@@ -239,7 +239,7 @@ export function renderPoster(
   y += 35;
   ctx.fillStyle = template.secondaryColor;
   ctx.font = `bold 14px sans-serif`;
-  ctx.fillText(`测评得分：${data.score || 0}分`, width / 2, y);
+  ctx.fillText(`测评得分�?{data.score || 0}分`, width / 2, y);
 
   y += 40;
   drawDecorativePattern(ctx, template, width, y);
@@ -249,10 +249,10 @@ export function renderPoster(
   ctx.font = `13px sans-serif`;
   ctx.textAlign = 'left';
   const infoX = width * 0.2;
-  ctx.fillText(`报到日期：${data.date || formatDate(new Date().toISOString())}`, infoX, y);
+  ctx.fillText(`报到日期�?{data.date || formatDate(new Date().toISOString())}`, infoX, y);
 
   y += 28;
-  ctx.fillText(`联系电话：${data.phone || '400-888-8888'}`, infoX, y);
+  ctx.fillText(`联系电话�?{data.phone || '400-888-8888'}`, infoX, y);
 
   y += 28;
   ctx.fillText('校区地址：请咨询招生老师', infoX, y);

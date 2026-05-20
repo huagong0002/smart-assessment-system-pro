@@ -120,7 +120,7 @@ export default function SharePoster({ record, studentName, onClose }: SharePoste
                   <Trophy className="text-amber-400" size={18} />
                   <span className="text-blue-200 text-sm">测评成绩</span>
                 </div>
-                <div className="text-4xl font-bold text-white mb-1">{record.score}<span className="text-lg text-blue-300">分</span></div>
+                <div className="text-4xl font-bold text-white mb-1">{record.score}<span className="text-lg text-blue-300">�?/span></div>
                 <div
                   className="inline-block px-3 py-1 rounded-full text-sm font-bold"
                   style={{ backgroundColor: `${levelColors[record.level]}30`, color: levelColors[record.level] }}
@@ -171,14 +171,14 @@ export default function SharePoster({ record, studentName, onClose }: SharePoste
             className="flex-1 btn-primary flex items-center justify-center gap-2"
           >
             <Download size={16} />
-            {downloading ? '生成中...' : '下载海报'}
+            {downloading ? '生成�?..' : '下载海报'}
           </button>
           <button
             onClick={copyPoster}
             className="flex-1 btn-secondary flex items-center justify-center gap-2"
           >
             {copied ? <Check size={16} className="text-emerald-500" /> : <Copy size={16} />}
-            {copied ? '已复制' : '复制图片'}
+            {copied ? '已复�? : '复制图片'}
           </button>
         </div>
       </div>

@@ -6,7 +6,7 @@ import { useState } from 'react';
 const navLinks = [
   { label: '首页', href: '#hero' },
   { label: '功能', href: '#features' },
-  { label: 'AI智能体', href: '#ai-agents' },
+  { label: 'AI智能�?, href: '#ai-agents' },
   { label: '评价', href: '#testimonials' },
 ];
 
@@ -47,8 +47,7 @@ export default function LandingNav() {
                 isScrolled ? 'text-slate-800' : 'text-white'
               }`}
             >
-              智测云
-            </span>
+              智测�?            </span>
           </button>
 
           {/* Desktop Nav */}

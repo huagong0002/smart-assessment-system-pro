@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { classApi, userApi } from '../../api/client';
+import { classApi, userApi } from '../../api-client/client';
 import PageHeader from '../../components/PageHeader';
 import StatCards from '../../components/StatCards';
 import { useTheme } from '../../components/ThemeProvider';
@@ -37,7 +37,7 @@ export default function AdminClasses() {
   };
 
   const handleDelete = async (id: number) => {
-    if (!confirm('确定要删除这个班级吗？')) return;
+    if (!confirm('确定要删除这个班级吗�?)) return;
     try {
       await classApi.delete(id);
       loadData();
@@ -116,7 +116,7 @@ export default function AdminClasses() {
                 <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">班级名称</th>
                 <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">年级</th>
                 <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">教师</th>
-                <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">学生数</th>
+                <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">学生�?/th>
                 <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">操作</th>
               </tr>
             </thead>
@@ -126,7 +126,7 @@ export default function AdminClasses() {
                   <td className="px-4 py-3 text-sm font-medium">{cls.name}</td>
                   <td className="px-4 py-3 text-sm">{cls.grade}年级</td>
                   <td className="px-4 py-3 text-sm">{cls.teacher_name || '-'}</td>
-                  <td className="px-4 py-3 text-sm">{cls.student_count || 0}人</td>
+                  <td className="px-4 py-3 text-sm">{cls.student_count || 0}�?/td>
                   <td className="px-4 py-3">
                     <div className="flex gap-2">
                       <button onClick={() => navigate(`/admin/classes/${cls.id}`)} className="p-1.5 rounded-lg hover:bg-blue-50 text-blue-600">

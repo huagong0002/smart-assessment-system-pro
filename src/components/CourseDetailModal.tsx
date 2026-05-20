@@ -10,14 +10,14 @@ const courseTypeLabels: Record<string, { text: string; color: string; bg: string
   aigc: { text: 'AIGC素养', color: 'text-purple-600', bg: 'bg-purple-100', icon: '🎨' },
   scratch: { text: 'Scratch', color: 'text-amber-600', bg: 'bg-amber-100', icon: '🧩' },
   python: { text: 'Python', color: 'text-blue-600', bg: 'bg-blue-100', icon: '🐍' },
-  cpp: { text: 'C++', color: 'text-emerald-600', bg: 'bg-emerald-100', icon: '⚡' },
+  cpp: { text: 'C++', color: 'text-emerald-600', bg: 'bg-emerald-100', icon: '�? },
 };
 
 const scheduleStatusLabels: Record<string, { text: string; color: string; bg: string }> = {
-  upcoming: { text: '即将开班', color: 'text-blue-600', bg: 'bg-blue-100' },
-  ongoing: { text: '进行中', color: 'text-emerald-600', bg: 'bg-emerald-100' },
-  completed: { text: '已结束', color: 'text-slate-600', bg: 'bg-slate-100' },
-  full: { text: '已满员', color: 'text-amber-600', bg: 'bg-amber-100' },
+  upcoming: { text: '即将开�?, color: 'text-blue-600', bg: 'bg-blue-100' },
+  ongoing: { text: '进行�?, color: 'text-emerald-600', bg: 'bg-emerald-100' },
+  completed: { text: '已结�?, color: 'text-slate-600', bg: 'bg-slate-100' },
+  full: { text: '已满�?, color: 'text-amber-600', bg: 'bg-amber-100' },
 };
 
 interface Schedule {
@@ -87,7 +87,7 @@ export default function CourseDetailModal({ courseId, onClose }: CourseDetailMod
       <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
         <div className="bg-white rounded-3xl p-12">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="text-sm text-slate-500 mt-4 text-center">加载中...</p>
+          <p className="text-sm text-slate-500 mt-4 text-center">加载�?..</p>
         </div>
       </div>
     );
@@ -139,7 +139,7 @@ export default function CourseDetailModal({ courseId, onClose }: CourseDetailMod
             <div className="glass-card rounded-2xl p-4 text-center">
               <Clock className="mx-auto text-emerald-500 mb-1" size={20} />
               <p className="text-sm font-bold text-slate-800">{course.total_hours}课时</p>
-              <p className="text-xs text-slate-500">总课时</p>
+              <p className="text-xs text-slate-500">总课�?/p>
             </div>
             <div className="glass-card rounded-2xl p-4 text-center">
               <DollarSign className="mx-auto text-amber-500 mb-1" size={20} />
@@ -148,8 +148,8 @@ export default function CourseDetailModal({ courseId, onClose }: CourseDetailMod
             </div>
             <div className="glass-card rounded-2xl p-4 text-center">
               <Users className="mx-auto text-purple-500 mb-1" size={20} />
-              <p className="text-sm font-bold text-slate-800">{activeSchedules.length}个</p>
-              <p className="text-xs text-slate-500">开班计划</p>
+              <p className="text-sm font-bold text-slate-800">{activeSchedules.length}�?/p>
+              <p className="text-xs text-slate-500">开班计�?/p>
             </div>
           </div>
 
@@ -158,8 +158,7 @@ export default function CourseDetailModal({ courseId, onClose }: CourseDetailMod
             <div>
               <h3 className="text-sm font-bold text-slate-700 mb-2 flex items-center gap-2">
                 <BookOpen size={16} className="text-blue-500" />
-                课程简介
-              </h3>
+                课程简�?              </h3>
               <p className="text-sm text-slate-600 leading-relaxed bg-slate-50 rounded-2xl p-4">
                 {course.description}
               </p>
@@ -199,12 +198,11 @@ export default function CourseDetailModal({ courseId, onClose }: CourseDetailMod
             </div>
           )}
 
-          {/* 开班计划 */}
+          {/* 开班计�?*/}
           <div>
             <h3 className="text-sm font-bold text-slate-700 mb-3 flex items-center gap-2">
               <Calendar size={16} className="text-amber-500" />
-              开班计划
-            </h3>
+              开班计�?            </h3>
             {course.schedules && course.schedules.length > 0 ? (
               <div className="space-y-3">
                 {course.schedules.map((schedule) => (
@@ -242,8 +240,7 @@ export default function CourseDetailModal({ courseId, onClose }: CourseDetailMod
                         />
                       </div>
                       <span className="text-xs text-slate-500 shrink-0">
-                        {schedule.enrolled || 0}/{schedule.capacity || 20}人
-                      </span>
+                        {schedule.enrolled || 0}/{schedule.capacity || 20}�?                      </span>
                     </div>
                   </div>
                 ))}

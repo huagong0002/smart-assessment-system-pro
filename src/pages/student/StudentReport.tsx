@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useAuthStore } from '../../stores/authStore';
-import { studentApi } from '../../api/client';
+import { studentApi } from '../../api-client/client';
 import ReportDetail from '../../components/ReportDetail';
 import InfoRequiredModal from '../../components/InfoRequiredModal';
 
@@ -71,8 +71,7 @@ export default function StudentReport() {
         >
           {records.map((record) => (
             <option key={record.id} value={record.id}>
-              {record.exam_name} - {record.score}åˆ†
-            </option>
+              {record.exam_name} - {record.score}åˆ?            </option>
           ))}
         </select>
       </div>

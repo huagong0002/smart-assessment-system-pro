@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { studentApi, examApi } from '../../api/client';
+import { studentApi, examApi } from '../../api-client/client';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -138,7 +138,7 @@ export default function TeacherReport() {
         <div className="glass-card rounded-3xl p-6 text-center">
           <TrendingUp className="mx-auto text-amber-500 mb-2" size={28} />
           <p className="text-3xl font-bold text-slate-800">{avgScore}</p>
-          <p className="text-xs text-slate-500 mt-1">平均分</p>
+          <p className="text-xs text-slate-500 mt-1">平均�?/p>
         </div>
         <div className="glass-card rounded-3xl p-6 text-center">
           <Award className="mx-auto text-purple-500 mb-2" size={28} />
@@ -148,13 +148,13 @@ export default function TeacherReport() {
               : 0}
             %
           </p>
-          <p className="text-xs text-slate-500 mt-1">优良率</p>
+          <p className="text-xs text-slate-500 mt-1">优良�?/p>
         </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="glass-card rounded-3xl p-6">
-          <h3 className="text-lg font-bold text-slate-800 mb-4">分数段分布</h3>
+          <h3 className="text-lg font-bold text-slate-800 mb-4">分数段分�?/h3>
           <Bar
             data={barData}
             options={{
@@ -185,7 +185,7 @@ export default function TeacherReport() {
       </div>
 
       <div className="glass-card rounded-3xl p-6">
-        <h3 className="text-lg font-bold text-slate-800 mb-4">测评成绩表</h3>
+        <h3 className="text-lg font-bold text-slate-800 mb-4">测评成绩�?/h3>
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>

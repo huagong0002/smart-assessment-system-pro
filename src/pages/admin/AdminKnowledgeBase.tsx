@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { faqApi } from '../../api/client';
+import { faqApi } from '../../api-client/client';
 import { useTheme } from '../../components/ThemeProvider';
 import PageHeader from '../../components/PageHeader';
 import StatCards from '../../components/StatCards';
@@ -22,7 +22,7 @@ const categoryMap: Record<string, string> = {
   exam: '测评相关',
   course: '课程相关',
   account: '账户相关',
-  technical: '技术问题',
+  technical: '技术问�?,
 };
 
 export default function AdminKnowledgeBase() {
@@ -112,8 +112,8 @@ export default function AdminKnowledgeBase() {
 
   const statCards = [
     { title: 'FAQ总数', value: faqs.length, icon: BookOpen, color: 'bg-blue-500' },
-    { title: '已启用', value: faqs.filter((f) => f.status === 'active').length, icon: HelpCircle, color: 'bg-green-500' },
-    { title: '分类数', value: categories.length, icon: Tag, color: 'bg-purple-500' },
+    { title: '已启�?, value: faqs.filter((f) => f.status === 'active').length, icon: HelpCircle, color: 'bg-green-500' },
+    { title: '分类�?, value: categories.length, icon: Tag, color: 'bg-purple-500' },
   ];
 
   if (loading) {
@@ -126,7 +126,7 @@ export default function AdminKnowledgeBase() {
 
   return (
     <div className="space-y-6">
-      <PageHeader title="知识库管理" description="管理FAQ问答知识库，帮助学生快速找到答案">
+      <PageHeader title="知识库管�? description="管理FAQ问答知识库，帮助学生快速找到答�?>
         <button
           onClick={() => { setEditingFaq(null); setFormData({ question: '', answer: '', category: 'general', tags: '', status: 'active' }); setShowModal(true); }}
           className="btn-primary flex items-center gap-2"
@@ -138,7 +138,7 @@ export default function AdminKnowledgeBase() {
 
       <StatCards cards={statCards} />
 
-      {/* 分类筛选 */}
+      {/* 分类筛�?*/}
       <div className="flex flex-wrap gap-2">
         <button
           onClick={() => setActiveCategory('')}
@@ -171,7 +171,7 @@ export default function AdminKnowledgeBase() {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
           <input
             type="text"
-            placeholder="搜索问题或答案..."
+            placeholder="搜索问题或答�?.."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-10 pr-4 py-2 rounded-xl border border-slate-200 dark:border-slate-600 bg-transparent text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20"
@@ -271,7 +271,7 @@ export default function AdminKnowledgeBase() {
                   value={formData.question}
                   onChange={(e) => setFormData({ ...formData, question: e.target.value })}
                   className="input-field"
-                  placeholder="请输入问题"
+                  placeholder="请输入问�?
                   required
                 />
               </div>
@@ -281,7 +281,7 @@ export default function AdminKnowledgeBase() {
                   value={formData.answer}
                   onChange={(e) => setFormData({ ...formData, answer: e.target.value })}
                   className="input-field min-h-[120px]"
-                  placeholder="请输入答案"
+                  placeholder="请输入答�?
                   required
                 />
               </div>
@@ -297,7 +297,7 @@ export default function AdminKnowledgeBase() {
                     <option value="exam">测评相关</option>
                     <option value="course">课程相关</option>
                     <option value="account">账户相关</option>
-                    <option value="technical">技术问题</option>
+                    <option value="technical">技术问�?/option>
                   </select>
                 </div>
                 <div>
@@ -313,7 +313,7 @@ export default function AdminKnowledgeBase() {
               </div>
               {editingFaq && (
                 <div>
-                  <label className={`block text-sm font-medium mb-1 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>状态</label>
+                  <label className={`block text-sm font-medium mb-1 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>状�?/label>
                   <select
                     value={formData.status || editingFaq.status}
                     onChange={(e) => setFormData({ ...formData, status: e.target.value })}

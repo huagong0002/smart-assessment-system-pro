@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../../stores/authStore';
-import { authApi } from '../../api/client';
+import { authApi } from '../../api-client/client';
 import { useTheme } from '../../components/ThemeProvider';
 import PageHeader from '../../components/PageHeader';
 import {
@@ -61,18 +61,18 @@ export default function StudentProfile() {
     // TODO: 从API获取徽章
     setBadges([
       { id: 1, name: '初出茅庐', description: '完成首次测评', icon: 'star', earned_at: '2024-01-15' },
-      { id: 2, name: '学习达人', description: '连续完成5次测评', icon: 'flame', earned_at: '2024-02-20' },
-      { id: 3, name: '优秀学员', description: '测评总分达到90分', icon: 'trophy', earned_at: '2024-03-10' },
+      { id: 2, name: '学习达人', description: '连续完成5次测�?, icon: 'flame', earned_at: '2024-02-20' },
+      { id: 3, name: '优秀学员', description: '测评总分达到90�?, icon: 'trophy', earned_at: '2024-03-10' },
     ]);
   };
 
   const handleChangePassword = async () => {
     if (passwordForm.new !== passwordForm.confirm) {
-      alert('两次输入的新密码不一致');
+      alert('两次输入的新密码不一�?);
       return;
     }
     if (passwordForm.new.length < 6) {
-      alert('新密码长度至少6位');
+      alert('新密码长度至�?�?);
       return;
     }
     setSaving(true);
@@ -91,14 +91,14 @@ export default function StudentProfile() {
 
   const handleChangePhone = async () => {
     if (!phoneForm.phone || phoneForm.phone.length !== 11) {
-      alert('请输入正确的手机号');
+      alert('请输入正确的手机�?);
       return;
     }
     setSaving(true);
     try {
       // TODO: 调用修改手机号API
       await new Promise(r => setTimeout(r, 500));
-      alert('手机号修改成功');
+      alert('手机号修改成�?);
       setShowPhoneModal(false);
       setPhoneForm({ phone: '', code: '' });
       loadUserInfo();
@@ -137,7 +137,7 @@ export default function StudentProfile() {
           </div>
           <div>
             <h2 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-800'}`}>账户信息</h2>
-            <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>查看和管理您的登录信息</p>
+            <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>查看和管理您的登录信�?/p>
           </div>
         </div>
 
@@ -147,7 +147,7 @@ export default function StudentProfile() {
               <div className="flex items-center gap-3">
                 <User size={16} className="text-slate-400" />
                 <div>
-                  <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>用户名</p>
+                  <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>用户�?/p>
                   <p className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{userInfo?.username || '-'}</p>
                 </div>
               </div>
@@ -161,7 +161,7 @@ export default function StudentProfile() {
                 <div>
                   <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>角色</p>
                   <p className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>
-                    {userInfo?.role === 'student' ? '学生' : userInfo?.role === 'teacher' ? '教师' : '管理员'}
+                    {userInfo?.role === 'student' ? '学生' : userInfo?.role === 'teacher' ? '教师' : '管理�?}
                   </p>
                 </div>
               </div>
@@ -173,8 +173,8 @@ export default function StudentProfile() {
               <div className="flex items-center gap-3">
                 <Phone size={16} className="text-slate-400" />
                 <div>
-                  <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>手机号</p>
-                  <p className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{userInfo?.phone || '未绑定'}</p>
+                  <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>手机�?/p>
+                  <p className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{userInfo?.phone || '未绑�?}</p>
                 </div>
               </div>
               <button
@@ -192,7 +192,7 @@ export default function StudentProfile() {
                 <Mail size={16} className="text-slate-400" />
                 <div>
                   <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>邮箱</p>
-                  <p className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{userInfo?.email || '未绑定'}</p>
+                  <p className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{userInfo?.email || '未绑�?}</p>
                 </div>
               </div>
             </div>
@@ -262,7 +262,7 @@ export default function StudentProfile() {
                     value={passwordForm.old}
                     onChange={(e) => setPasswordForm({ ...passwordForm, old: e.target.value })}
                     className="input-field pr-10"
-                    placeholder="请输入当前密码"
+                    placeholder="请输入当前密�?
                   />
                   <button
                     onClick={() => setShowOldPassword(!showOldPassword)}
@@ -273,14 +273,14 @@ export default function StudentProfile() {
                 </div>
               </div>
               <div>
-                <label className={`block text-sm font-medium mb-1 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>新密码</label>
+                <label className={`block text-sm font-medium mb-1 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>新密�?/label>
                 <div className="relative">
                   <input
                     type={showNewPassword ? 'text' : 'password'}
                     value={passwordForm.new}
                     onChange={(e) => setPasswordForm({ ...passwordForm, new: e.target.value })}
                     className="input-field pr-10"
-                    placeholder="至少6位字符"
+                    placeholder="至少6位字�?
                   />
                   <button
                     onClick={() => setShowNewPassword(!showNewPassword)}
@@ -291,13 +291,13 @@ export default function StudentProfile() {
                 </div>
               </div>
               <div>
-                <label className={`block text-sm font-medium mb-1 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>确认新密码</label>
+                <label className={`block text-sm font-medium mb-1 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>确认新密�?/label>
                 <input
                   type="password"
                   value={passwordForm.confirm}
                   onChange={(e) => setPasswordForm({ ...passwordForm, confirm: e.target.value })}
                   className="input-field"
-                  placeholder="再次输入新密码"
+                  placeholder="再次输入新密�?
                 />
               </div>
               <div className="flex gap-3 pt-2">
@@ -307,7 +307,7 @@ export default function StudentProfile() {
                   disabled={saving}
                   className="flex-1 btn-primary py-2.5 disabled:opacity-50"
                 >
-                  {saving ? '保存中...' : '确认修改'}
+                  {saving ? '保存�?..' : '确认修改'}
                 </button>
               </div>
             </div>
@@ -315,13 +315,13 @@ export default function StudentProfile() {
         </div>
       )}
 
-      {/* 修改手机号弹窗 */}
+      {/* 修改手机号弹�?*/}
       {showPhoneModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
           <div className={`rounded-2xl p-6 w-full max-w-sm ${isDark ? 'bg-slate-800' : 'bg-white'}`}>
             <div className="flex items-center justify-between mb-4">
               <h2 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-800'}`}>
-                {userInfo?.phone ? '修改手机号' : '绑定手机号'}
+                {userInfo?.phone ? '修改手机�? : '绑定手机�?}
               </h2>
               <button onClick={() => setShowPhoneModal(false)} className="p-1 hover:bg-slate-100 rounded-lg">
                 <X size={18} className="text-slate-400" />
@@ -329,13 +329,13 @@ export default function StudentProfile() {
             </div>
             <div className="space-y-4">
               <div>
-                <label className={`block text-sm font-medium mb-1 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>手机号</label>
+                <label className={`block text-sm font-medium mb-1 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>手机�?/label>
                 <input
                   type="tel"
                   value={phoneForm.phone}
                   onChange={(e) => setPhoneForm({ ...phoneForm, phone: e.target.value })}
                   className="input-field"
-                  placeholder="请输入11位手机号"
+                  placeholder="请输�?1位手机号"
                   maxLength={11}
                 />
               </div>
@@ -346,7 +346,7 @@ export default function StudentProfile() {
                   disabled={saving}
                   className="flex-1 btn-primary py-2.5 disabled:opacity-50"
                 >
-                  {saving ? '保存中...' : '确认'}
+                  {saving ? '保存�?..' : '确认'}
                 </button>
               </div>
             </div>

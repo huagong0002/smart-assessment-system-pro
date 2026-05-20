@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
-import { configApi, apiFetch, knowledgeApi, faqApi } from '../../api/client';
+import { configApi, apiFetch, knowledgeApi, faqApi } from '../../api-client/client';
 import {
   Cpu, Save, Check, X, Activity, Clock, Zap,
   FileText, Brain, Shield, TrendingUp, Edit3,
@@ -78,25 +78,25 @@ function getDefaultAgents(): AIAgent[] {
       name: '测评报告AI分析',
       description: '根据测评结果生成个性化分析报告',
       enabled: true,
-      systemPrompt: '你是一位资深的教育评估专家，擅长根据学生的测评结果和个人信息提供专业的分析报告。请以JSON格式返回分析结果。',
+      systemPrompt: '你是一位资深的教育评估专家，擅长根据学生的测评结果和个人信息提供专业的分析报告。请以JSON格式返回分析结果�?,
       temperature: 0.7,
       maxTokens: 2000,
     },
     {
       key: 'question_generate',
       name: 'AI智能出题',
-      description: '根据知识点自动生成题目',
+      description: '根据知识点自动生成题�?,
       enabled: true,
-      systemPrompt: '你是一个专业的教育题目生成助手。请根据要求生成结构化的测评题目，以JSON格式返回。',
+      systemPrompt: '你是一个专业的教育题目生成助手。请根据要求生成结构化的测评题目，以JSON格式返回�?,
       temperature: 0.7,
       maxTokens: 2000,
     },
     {
       key: 'question_review',
       name: 'AI题目审核',
-      description: '审核题目质量和准确性',
+      description: '审核题目质量和准确�?,
       enabled: true,
-      systemPrompt: '你是一个专业的教育题目审核助手。请审核题目质量，检查准确性、选项合理性、答案正确性。以JSON格式返回审核结果。',
+      systemPrompt: '你是一个专业的教育题目审核助手。请审核题目质量，检查准确性、选项合理性、答案正确性。以JSON格式返回审核结果�?,
       temperature: 0.7,
       maxTokens: 2000,
     },
@@ -105,7 +105,7 @@ function getDefaultAgents(): AIAgent[] {
       name: '智能组卷',
       description: '根据知识点和难度智能组合试卷',
       enabled: false,
-      systemPrompt: '你是一位资深的试卷组卷专家。请根据给定的知识点、难度分布和题目数量要求，从题库中选择最合适的题目组合成一套试卷。',
+      systemPrompt: '你是一位资深的试卷组卷专家。请根据给定的知识点、难度分布和题目数量要求，从题库中选择最合适的题目组合成一套试卷�?,
       temperature: 0.5,
       maxTokens: 4000,
     },
@@ -114,7 +114,7 @@ function getDefaultAgents(): AIAgent[] {
       name: '智能推荐',
       description: '根据测评结果智能推荐课程',
       enabled: true,
-      systemPrompt: '你是资深教育顾问，根据学生测评结果从机构课程库中推荐最适合的课程。必须严格从提供的课程列表中选择，禁止推荐不存在的课程。以JSON格式返回。',
+      systemPrompt: '你是资深教育顾问，根据学生测评结果从机构课程库中推荐最适合的课程。必须严格从提供的课程列表中选择，禁止推荐不存在的课程。以JSON格式返回�?,
       temperature: 0.7,
       maxTokens: 2000,
     },
@@ -194,8 +194,7 @@ export default function AdminAIConfig() {
         ai_agents_config: configData.ai_agents_config || '',
       });
 
-      // 解析智能体配置
-      let parsedAgents: AIAgent[] = [];
+      // 解析智能体配�?      let parsedAgents: AIAgent[] = [];
       try {
         if (configData.ai_agents_config) {
           const agentsConfig: AIAgentsConfig = JSON.parse(configData.ai_agents_config);
@@ -205,8 +204,7 @@ export default function AdminAIConfig() {
         console.error('Failed to parse ai_agents_config:', e);
       }
 
-      // 如果数据库没有智能体配置，使用默认配置
-      if (parsedAgents.length === 0) {
+      // 如果数据库没有智能体配置，使用默认配�?      if (parsedAgents.length === 0) {
         parsedAgents = getDefaultAgents();
       }
       setAgents(parsedAgents);
@@ -349,7 +347,7 @@ export default function AdminAIConfig() {
       setDrawerEditing(false);
     } catch (error) {
       console.error(error);
-      alert('保存智能体配置失败');
+      alert('保存智能体配置失�?);
     } finally {
       setDrawerSaving(false);
     }
@@ -405,16 +403,14 @@ export default function AdminAIConfig() {
                   activeTab === 'agents' ? 'bg-white shadow-sm text-slate-800' : 'text-slate-500'
                 }`}
               >
-                智能体管理
-              </button>
+                智能体管�?              </button>
               <button
                 onClick={() => setActiveTab('knowledge')}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                   activeTab === 'knowledge' ? 'bg-white shadow-sm text-slate-800' : 'text-slate-500'
                 }`}
               >
-                知识库
-              </button>
+                知识�?              </button>
               <button
                 onClick={() => setActiveTab('logs')}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
@@ -449,7 +445,7 @@ export default function AdminAIConfig() {
                   </div>
                   <div>
                     <p className="text-2xl font-bold text-slate-800">{stats.overall.rate}%</p>
-                    <p className="text-xs text-slate-500">总体成功率</p>
+                    <p className="text-xs text-slate-500">总体成功�?/p>
                   </div>
                 </div>
               </div>
@@ -476,7 +472,7 @@ export default function AdminAIConfig() {
                 </div>
                 <div>
                   <h2 className="text-lg font-bold text-slate-800">AI基础配置</h2>
-                  <p className="text-sm text-slate-500">配置AI服务的连接参数</p>
+                  <p className="text-sm text-slate-500">配置AI服务的连接参�?/p>
                 </div>
               </div>
               {!isEditing && (
@@ -501,7 +497,7 @@ export default function AdminAIConfig() {
                   placeholder="输入AI API Key"
                   disabled={!isEditing}
                 />
-                <p className="text-xs text-slate-400 mt-1">留空则使用环境变量 AI_API_KEY</p>
+                <p className="text-xs text-slate-400 mt-1">留空则使用环境变�?AI_API_KEY</p>
               </div>
 
               <div>
@@ -538,7 +534,7 @@ export default function AdminAIConfig() {
                 className="flex-1 btn-primary py-3 flex items-center justify-center gap-2 disabled:opacity-50"
               >
                 {saved ? <Check size={18} /> : <Save size={18} />}
-                {saving ? '保存中...' : saved ? '已保存' : '保存配置'}
+                {saving ? '保存�?..' : saved ? '已保�? : '保存配置'}
               </button>
               <button
                 onClick={handleCancel}
@@ -583,7 +579,7 @@ export default function AdminAIConfig() {
                     <div className={`px-2 py-1 rounded-lg text-xs font-medium ${
                       agent.enabled ? 'bg-emerald-50 text-emerald-600' : 'bg-slate-100 text-slate-400'
                     }`}>
-                      {agent.enabled ? '已启用' : '已禁用'}
+                      {agent.enabled ? '已启�? : '已禁�?}
                     </div>
                   </div>
 
@@ -591,13 +587,11 @@ export default function AdminAIConfig() {
                     <div className="flex items-center gap-4 text-xs text-slate-500">
                       <span className="flex items-center gap-1">
                         <BarChart3 size={12} />
-                        {agentStat.count} 次调用
-                      </span>
+                        {agentStat.count} 次调�?                      </span>
                       {agentStat.count > 0 && (
                         <span className={`flex items-center gap-1 ${getFeatureStatusColor(agent.key)}`}>
                           <TrendingUp size={12} />
-                          {agentStat.rate}% 成功率
-                        </span>
+                          {agentStat.rate}% 成功�?                        </span>
                       )}
                     </div>
                     <ChevronRight size={16} className="text-slate-300" />
@@ -693,8 +687,7 @@ export default function AdminAIConfig() {
                 knowledgeTab === 'faq' ? 'bg-white shadow-sm text-slate-800' : 'text-slate-500'
               }`}
             >
-              FAQ知识库
-            </button>
+              FAQ知识�?            </button>
           </div>
 
           {/* Dimension Content */}
@@ -706,7 +699,7 @@ export default function AdminAIConfig() {
                   {['cognitive', 'skill', 'quality'].map(category => (
                     <div key={category} className="mb-6">
                       <h3 className="text-sm font-semibold text-slate-600 mb-3 capitalize">
-                        {category === 'cognitive' ? '认知能力' : category === 'skill' ? '技能能力' : '综合素养'}
+                        {category === 'cognitive' ? '认知能力' : category === 'skill' ? '技能能�? : '综合素养'}
                       </h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {dimensions
@@ -721,7 +714,7 @@ export default function AdminAIConfig() {
                                 <span className={`px-2 py-1 rounded text-xs ${
                                   dim.status === 'active' ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-200 text-slate-500'
                                 }`}>
-                                  {dim.is_system ? '系统' : '自定义'}
+                                  {dim.is_system ? '系统' : '自定�?}
                                 </span>
                               </div>
                             </div>
@@ -743,7 +736,7 @@ export default function AdminAIConfig() {
                   onChange={(e) => setSelectedCourseType(e.target.value)}
                   className="px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm"
                 >
-                  <option value="scratch">Scratch图形化</option>
+                  <option value="scratch">Scratch图形�?/option>
                   <option value="python">Python编程</option>
                   <option value="cpp">C++算法</option>
                   <option value="aigc">AIGC素养</option>
@@ -767,19 +760,19 @@ export default function AdminAIConfig() {
                     return (
                       <div className="text-center py-12 text-slate-400">
                         <BookOpen size={40} className="mx-auto mb-3 opacity-50" />
-                        <p>暂无该课程知识</p>
+                        <p>暂无该课程知�?/p>
                       </div>
                     );
                   }
                   return (
                     <div className="space-y-6">
                       <div>
-                        <h3 className="text-lg font-bold text-slate-800 mb-3">知识点列表</h3>
+                        <h3 className="text-lg font-bold text-slate-800 mb-3">知识点列�?/h3>
                         <div className="grid grid-cols-2 gap-2">
                           {(course.knowledge_points || []).map((kp: any, i: number) => (
                             <div key={i} className="bg-slate-50 rounded-lg p-3">
                               <p className="font-medium text-slate-700">{kp.name}</p>
-                              <p className="text-xs text-slate-500 mt-1">难度: {'★'.repeat(kp.difficulty || 1)}</p>
+                              <p className="text-xs text-slate-500 mt-1">难度: {'�?.repeat(kp.difficulty || 1)}</p>
                             </div>
                           ))}
                         </div>
@@ -791,7 +784,7 @@ export default function AdminAIConfig() {
                           {(course.learning_path || []).map((path: any, i: number) => (
                             <div key={i} className="flex items-center gap-2">
                               <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs">{path.stage}</span>
-                              <span className="text-sm text-slate-600">{(path.points || []).join(' → ')}</span>
+                              <span className="text-sm text-slate-600">{(path.points || []).join(' �?')}</span>
                             </div>
                           ))}
                         </div>
@@ -822,7 +815,7 @@ export default function AdminAIConfig() {
           {knowledgeTab === 'overview' && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="glass-card rounded-3xl p-6">
-                <h3 className="text-lg font-bold text-slate-800 mb-4">知识库功能</h3>
+                <h3 className="text-lg font-bold text-slate-800 mb-4">知识库功�?/h3>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-xl">
                     <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -848,30 +841,30 @@ export default function AdminAIConfig() {
                     </div>
                     <div>
                       <p className="font-medium text-slate-800">维度分析</p>
-                      <p className="text-xs text-slate-500 mt-1">多维度能力画像评估</p>
+                      <p className="text-xs text-slate-500 mt-1">多维度能力画像评�?/p>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div className="glass-card rounded-3xl p-6">
-                <h3 className="text-lg font-bold text-slate-800 mb-4">快速统计</h3>
+                <h3 className="text-lg font-bold text-slate-800 mb-4">快速统�?/h3>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-slate-600">已覆盖课程</span>
-                    <span className="font-bold text-slate-800">{courses.length}门</span>
+                    <span className="text-slate-600">已覆盖课�?/span>
+                    <span className="font-bold text-slate-800">{courses.length}�?/span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-slate-600">定义维度数</span>
-                    <span className="font-bold text-slate-800">{dimensions.length}个</span>
+                    <span className="text-slate-600">定义维度�?/span>
+                    <span className="font-bold text-slate-800">{dimensions.length}�?/span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-slate-600">系统维度</span>
-                    <span className="font-bold text-emerald-600">{dimensions.filter(d => d.is_system).length}个</span>
+                    <span className="font-bold text-emerald-600">{dimensions.filter(d => d.is_system).length}�?/span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-slate-600">自定义维度</span>
-                    <span className="font-bold text-blue-600">{dimensions.filter(d => !d.is_system).length}个</span>
+                    <span className="text-slate-600">自定义维�?/span>
+                    <span className="font-bold text-blue-600">{dimensions.filter(d => !d.is_system).length}�?/span>
                   </div>
                 </div>
               </div>
@@ -883,7 +876,7 @@ export default function AdminAIConfig() {
             <div className="space-y-6">
               {/* FAQ Header */}
               <div className="flex items-center justify-between">
-                <h2 className="text-lg font-bold text-slate-800">FAQ知识库管理</h2>
+                <h2 className="text-lg font-bold text-slate-800">FAQ知识库管�?/h2>
                 <button
                   onClick={() => { setEditingFaq(null); setFaqForm({ question: '', answer: '', category: 'general', tags: '', status: 'active' }); setFaqModalOpen(true); }}
                   className="btn-primary flex items-center gap-2"
@@ -913,7 +906,7 @@ export default function AdminAIConfig() {
                     </div>
                     <div>
                       <p className="text-2xl font-bold text-slate-800">{faqs.filter((f: any) => f.status === 'active').length}</p>
-                      <p className="text-xs text-slate-500">已启用</p>
+                      <p className="text-xs text-slate-500">已启�?/p>
                     </div>
                   </div>
                 </div>
@@ -924,7 +917,7 @@ export default function AdminAIConfig() {
                     </div>
                     <div>
                       <p className="text-2xl font-bold text-slate-800">{faqCategories.length}</p>
-                      <p className="text-xs text-slate-500">分类数</p>
+                      <p className="text-xs text-slate-500">分类�?/p>
                     </div>
                   </div>
                 </div>
@@ -952,7 +945,7 @@ export default function AdminAIConfig() {
                         : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'
                     }`}
                   >
-                    {cat.category === 'general' ? '通用' : cat.category === 'exam' ? '测评相关' : cat.category === 'course' ? '课程相关' : cat.category === 'account' ? '账户相关' : cat.category === 'technical' ? '技术问题' : cat.category} ({cat.count})
+                    {cat.category === 'general' ? '通用' : cat.category === 'exam' ? '测评相关' : cat.category === 'course' ? '课程相关' : cat.category === 'account' ? '账户相关' : cat.category === 'technical' ? '技术问�? : cat.category} ({cat.count})
                   </button>
                 ))}
               </div>
@@ -963,7 +956,7 @@ export default function AdminAIConfig() {
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
                   <input
                     type="text"
-                    placeholder="搜索问题或答案..."
+                    placeholder="搜索问题或答�?.."
                     value={faqSearch}
                     onChange={(e) => setFaqSearch(e.target.value)}
                     className="w-full pl-10 pr-4 py-2 rounded-xl border border-slate-200 bg-transparent text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20"
@@ -1010,7 +1003,7 @@ export default function AdminAIConfig() {
                         </div>
                         <div className="flex items-center gap-2 mt-1">
                           <span className="text-xs text-slate-500">
-                            {faq.category === 'general' ? '通用' : faq.category === 'exam' ? '测评相关' : faq.category === 'course' ? '课程相关' : faq.category === 'account' ? '账户相关' : faq.category === 'technical' ? '技术问题' : faq.category}
+                            {faq.category === 'general' ? '通用' : faq.category === 'exam' ? '测评相关' : faq.category === 'course' ? '课程相关' : faq.category === 'account' ? '账户相关' : faq.category === 'technical' ? '技术问�? : faq.category}
                           </span>
                           {faq.tags && faq.tags.split(',').map((tag: string) => (
                             <span key={tag} className="text-xs px-1.5 py-0.5 rounded bg-slate-100 text-slate-600">
@@ -1079,7 +1072,7 @@ export default function AdminAIConfig() {
                   value={faqForm.question}
                   onChange={(e) => setFaqForm({ ...faqForm, question: e.target.value })}
                   className="input-field"
-                  placeholder="请输入问题"
+                  placeholder="请输入问�?
                   required
                 />
               </div>
@@ -1089,7 +1082,7 @@ export default function AdminAIConfig() {
                   value={faqForm.answer}
                   onChange={(e) => setFaqForm({ ...faqForm, answer: e.target.value })}
                   className="input-field min-h-[120px]"
-                  placeholder="请输入答案"
+                  placeholder="请输入答�?
                   required
                 />
               </div>
@@ -1105,7 +1098,7 @@ export default function AdminAIConfig() {
                     <option value="exam">测评相关</option>
                     <option value="course">课程相关</option>
                     <option value="account">账户相关</option>
-                    <option value="technical">技术问题</option>
+                    <option value="technical">技术问�?/option>
                   </select>
                 </div>
                 <div>
@@ -1121,7 +1114,7 @@ export default function AdminAIConfig() {
               </div>
               {editingFaq && (
                 <div>
-                  <label className="block text-sm font-medium mb-1 text-slate-700">状态</label>
+                  <label className="block text-sm font-medium mb-1 text-slate-700">状�?/label>
                   <select
                     value={faqForm.status}
                     onChange={(e) => setFaqForm({ ...faqForm, status: e.target.value })}
@@ -1164,8 +1157,7 @@ export default function AdminAIConfig() {
                 className="text-sm text-slate-500 hover:text-slate-700 flex items-center gap-1"
               >
                 <XIcon size={14} />
-                清除筛选
-              </button>
+                清除筛�?              </button>
             )}
           </div>
 
@@ -1175,7 +1167,7 @@ export default function AdminAIConfig() {
               <div className="text-center py-12 text-slate-400">
                 <Activity size={40} className="mx-auto mb-3 opacity-50" />
                 <p>暂无AI使用记录</p>
-                <p className="text-xs text-slate-400 mt-2">当AI功能被调用后，记录将显示在这里</p>
+                <p className="text-xs text-slate-400 mt-2">当AI功能被调用后，记录将显示在这�?/p>
               </div>
             ) : (
               <div className="overflow-x-auto">
@@ -1183,8 +1175,8 @@ export default function AdminAIConfig() {
                   <thead>
                     <tr className="border-b border-slate-100">
                       <th className="text-left py-3 px-2 text-slate-500 font-medium">时间</th>
-                      <th className="text-left py-3 px-2 text-slate-500 font-medium">智能体</th>
-                      <th className="text-left py-3 px-2 text-slate-500 font-medium">状态</th>
+                      <th className="text-left py-3 px-2 text-slate-500 font-medium">智能�?/th>
+                      <th className="text-left py-3 px-2 text-slate-500 font-medium">状�?/th>
                       <th className="text-left py-3 px-2 text-slate-500 font-medium">输入摘要</th>
                       <th className="text-left py-3 px-2 text-slate-500 font-medium">耗时</th>
                       <th className="text-left py-3 px-2 text-slate-500 font-medium">操作</th>
@@ -1277,7 +1269,7 @@ export default function AdminAIConfig() {
               <div className="flex items-center justify-between p-4 bg-slate-50 rounded-2xl">
                 <div className="flex items-center gap-2">
                   <Sliders size={16} className="text-slate-500" />
-                  <span className="text-sm font-medium text-slate-700">智能体状态</span>
+                  <span className="text-sm font-medium text-slate-700">智能体状�?/span>
                 </div>
                 <button
                   onClick={() => {
@@ -1304,13 +1296,13 @@ export default function AdminAIConfig() {
                   <div className="grid grid-cols-2 gap-3">
                     <div className="bg-slate-50 rounded-xl p-4">
                       <p className="text-2xl font-bold text-slate-800">{agentStat.count}</p>
-                      <p className="text-xs text-slate-500">总调用次数</p>
+                      <p className="text-xs text-slate-500">总调用次�?/p>
                     </div>
                     <div className="bg-slate-50 rounded-xl p-4">
                       <p className={`text-2xl font-bold ${agentStat.rate >= 70 ? 'text-emerald-600' : agentStat.rate >= 50 ? 'text-amber-600' : 'text-slate-400'}`}>
                         {agentStat.rate}%
                       </p>
-                      <p className="text-xs text-slate-500">成功率</p>
+                      <p className="text-xs text-slate-500">成功�?/p>
                     </div>
                   </div>
                 );
@@ -1320,8 +1312,7 @@ export default function AdminAIConfig() {
               <div className="flex items-center justify-between">
                 <h3 className="font-medium text-slate-800 flex items-center gap-2">
                   <MessageSquare size={16} />
-                  系统提示词
-                </h3>
+                  系统提示�?                </h3>
                 <button
                   onClick={() => setDrawerEditing(!drawerEditing)}
                   className="text-sm text-blue-600 hover:text-blue-700 font-medium"
@@ -1336,11 +1327,11 @@ export default function AdminAIConfig() {
                   value={selectedAgent.systemPrompt}
                   onChange={(e) => setSelectedAgent({ ...selectedAgent, systemPrompt: e.target.value })}
                   className="w-full h-48 p-4 bg-slate-50 rounded-xl text-sm text-slate-700 border border-slate-200 focus:border-blue-400 focus:outline-none resize-none"
-                  placeholder="输入系统提示词..."
+                  placeholder="输入系统提示�?.."
                 />
               ) : (
                 <div className="p-4 bg-slate-50 rounded-xl text-sm text-slate-600 leading-relaxed">
-                  {selectedAgent.systemPrompt || '暂无系统提示词'}
+                  {selectedAgent.systemPrompt || '暂无系统提示�?}
                 </div>
               )}
 
@@ -1393,7 +1384,7 @@ export default function AdminAIConfig() {
                   disabled={drawerSaving}
                   className="w-full py-3 bg-blue-500 text-white rounded-xl text-sm font-medium hover:bg-blue-600 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
                 >
-                  {drawerSaving ? '保存中...' : <><Save size={16} /> 保存配置</>}
+                  {drawerSaving ? '保存�?..' : <><Save size={16} /> 保存配置</>}
                 </button>
               )}
 
@@ -1401,8 +1392,7 @@ export default function AdminAIConfig() {
               <div className="space-y-3">
                 <h3 className="font-medium text-slate-800 flex items-center gap-2">
                   <Activity size={16} />
-                  最近调用
-                </h3>
+                  最近调�?                </h3>
                 {logs
                   .filter(log => log.feature === selectedAgent.key)
                   .slice(0, 5)
@@ -1510,7 +1500,7 @@ export default function AdminAIConfig() {
                     输入摘要
                   </h4>
                   <div className="bg-slate-50 rounded-xl p-4 text-sm text-slate-600 whitespace-pre-wrap break-all max-h-40 overflow-y-auto">
-                    {selectedLog.input_summary || '无输入内容'}
+                    {selectedLog.input_summary || '无输入内�?}
                   </div>
                 </div>
 
@@ -1531,7 +1521,7 @@ export default function AdminAIConfig() {
                         className="flex items-center gap-1 text-xs text-blue-600 hover:text-blue-700 bg-blue-50 px-2 py-1 rounded-lg transition-colors"
                       >
                         {copiedField === 'input' ? <CheckCircle size={12} /> : <Copy size={12} />}
-                        {copiedField === 'input' ? '已复制' : '复制'}
+                        {copiedField === 'input' ? '已复�? : '复制'}
                       </button>
                     </div>
                     <div className="bg-slate-900 rounded-xl p-4 text-sm text-slate-300 whitespace-pre-wrap break-all max-h-80 overflow-y-auto font-mono text-xs">
@@ -1576,7 +1566,7 @@ export default function AdminAIConfig() {
                         className="flex items-center gap-1 text-xs text-emerald-600 hover:text-emerald-700 bg-emerald-50 px-2 py-1 rounded-lg transition-colors"
                       >
                         {copiedField === 'output' ? <CheckCircle size={12} /> : <Copy size={12} />}
-                        {copiedField === 'output' ? '已复制' : '复制'}
+                        {copiedField === 'output' ? '已复�? : '复制'}
                       </button>
                     </div>
                     <div className="bg-slate-900 rounded-xl p-4 text-sm text-slate-300 whitespace-pre-wrap break-all max-h-80 overflow-y-auto font-mono text-xs">

@@ -36,8 +36,7 @@ import AdminClasses from './pages/admin/AdminClasses';
 import AdminNotices from './pages/admin/AdminNotices';
 import AdminClassDetail from './pages/admin/AdminClassDetail';
 import AdminCertificates from './pages/admin/AdminCertificates';
-// import AdminKnowledgeBase from './pages/admin/AdminKnowledgeBase'; // 已合并到智能体管理
-import StudentGrowth from './pages/student/StudentGrowth';
+// import AdminKnowledgeBase from './pages/admin/AdminKnowledgeBase'; // 已合并到智能体管�?import StudentGrowth from './pages/student/StudentGrowth';
 
 function ProtectedRoute({ children, allowedRoles }: { children: React.ReactNode; allowedRoles: string[] }) {
   const { user, isAuthenticated, isLoading, initAuth } = useAuthStore();

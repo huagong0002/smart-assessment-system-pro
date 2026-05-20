@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
-import { noticeApi } from '../../api/client';
+import { noticeApi } from '../../api-client/client';
 import { FileText, Plus, X, Save, Trash2, Eye, Palette } from 'lucide-react';
 import { renderPoster, posterTemplates, type PosterData } from '../../utils/posterCanvas';
 import { formatDate } from '../../utils/dateFormat';
@@ -159,7 +159,7 @@ export default function AdminTemplates() {
   return (
     <div className="space-y-6 fade-in">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-slate-800">录取通知书模板配置</h1>
+        <h1 className="text-2xl font-bold text-slate-800">录取通知书模板配�?/h1>
         <button
           onClick={() => {
             setEditingTemplate(null);
@@ -286,7 +286,7 @@ export default function AdminTemplates() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">模板内容（用于文本通知）</label>
+                  <label className="block text-sm font-medium text-slate-700 mb-1">模板内容（用于文本通知�?/label>
                   <textarea
                     value={formData.content}
                     onChange={(e) => setFormData({ ...formData, content: e.target.value })}
@@ -304,7 +304,7 @@ export default function AdminTemplates() {
                   className="w-full btn-primary py-3 flex items-center justify-center gap-2 disabled:opacity-50"
                 >
                   <Save size={18} />
-                  {saving ? '保存中...' : '保存'}
+                  {saving ? '保存�?..' : '保存'}
                 </button>
               </form>
 
@@ -321,8 +321,7 @@ export default function AdminTemplates() {
                   />
                 </div>
                 <p className="text-xs text-slate-400 text-center">
-                  预览数据为示例，实际下发时会替换为学生真实数据
-                </p>
+                  预览数据为示例，实际下发时会替换为学生真实数�?                </p>
               </div>
             </div>
           </div>

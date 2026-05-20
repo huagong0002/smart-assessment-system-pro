@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAuthStore } from '../../stores/authStore';
-import { studentApi, knowledgeApi } from '../../api/client';
+import { studentApi, knowledgeApi } from '../../api-client/client';
 import PageHeader from '../../components/PageHeader';
 import { useTheme } from '../../components/ThemeProvider';
 import GrowthCurveChart from '../../components/GrowthCurveChart';
@@ -32,14 +32,14 @@ const badgeIcons: Record<string, React.ReactNode> = {
 };
 
 const defaultBadges = [
-  { code: 'first_exam', name: '初次测评', description: '完成第一次测评', icon: 'first_exam', category: '入门' },
+  { code: 'first_exam', name: '初次测评', description: '完成第一次测�?, icon: 'first_exam', category: '入门' },
   { code: 'perfect_score', name: '满分达人', description: '单次测评获得满分', icon: 'perfect_score', category: '成就' },
-  { code: 'streak_3', name: '三连击', description: '连续3次测评获得A级', icon: 'streak_3', category: '成就' },
-  { code: 'level_a', name: '优秀学员', description: '获得A级评价', icon: 'level_a', category: '等级' },
-  { code: 'all_courses', name: '全课程探索', description: '完成所有课程类型的测评', icon: 'all_courses', category: '探索' },
-  { code: 'quick_learner', name: '快速学习者', description: '在30分钟内完成测评并获得B级以上', icon: 'quick_learner', category: '技能' },
-  { code: 'persistent', name: '持之以恒', description: '累计完成10次测评', icon: 'persistent', category: '坚持' },
-  { code: 'explorer', name: '探索者', description: '尝试3种不同的课程类型', icon: 'explorer', category: '探索' },
+  { code: 'streak_3', name: '三连�?, description: '连续3次测评获得A�?, icon: 'streak_3', category: '成就' },
+  { code: 'level_a', name: '优秀学员', description: '获得A级评�?, icon: 'level_a', category: '等级' },
+  { code: 'all_courses', name: '全课程探�?, description: '完成所有课程类型的测评', icon: 'all_courses', category: '探索' },
+  { code: 'quick_learner', name: '快速学习�?, description: '�?0分钟内完成测评并获得B级以�?, icon: 'quick_learner', category: '技�? },
+  { code: 'persistent', name: '持之以恒', description: '累计完成10次测�?, icon: 'persistent', category: '坚持' },
+  { code: 'explorer', name: '探索�?, description: '尝试3种不同的课程类型', icon: 'explorer', category: '探索' },
 ];
 
 export default function StudentGrowth() {
@@ -101,9 +101,9 @@ export default function StudentGrowth() {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {[
           { title: '测评次数', value: records.length, icon: Trophy, color: 'bg-blue-500' },
-          { title: '获得A级', value: records.filter((r) => r.level === 'A').length, icon: Award, color: 'bg-green-500' },
-          { title: '徽章数', value: earnedBadges.filter((b) => b.earned).length, icon: Medal, color: 'bg-purple-500' },
-          { title: '总时长', value: `${Math.floor(records.reduce((sum, r) => sum + (r.duration || 0), 0) / 60)}分`, icon: Clock, color: 'bg-amber-500' },
+          { title: '获得A�?, value: records.filter((r) => r.level === 'A').length, icon: Award, color: 'bg-green-500' },
+          { title: '徽章�?, value: earnedBadges.filter((b) => b.earned).length, icon: Medal, color: 'bg-purple-500' },
+          { title: '总时�?, value: `${Math.floor(records.reduce((sum, r) => sum + (r.duration || 0), 0) / 60)}分`, icon: Clock, color: 'bg-amber-500' },
         ].map((card, index) => (
           <div key={index} className={`rounded-2xl p-5 border ${isDark ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'}`}>
             <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${card.color}`}>
@@ -119,7 +119,7 @@ export default function StudentGrowth() {
       <div className={`rounded-2xl border ${isDark ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'}`}>
         <div className={`flex border-b ${isDark ? 'border-slate-700' : 'border-slate-200'}`}>
           {[
-            { key: 'timeline', label: '测评时间线' },
+            { key: 'timeline', label: '测评时间�? },
             { key: 'growth', label: '能力成长曲线' },
             { key: 'badges', label: '成就徽章' },
             { key: 'certificates', label: '测评证书' },
@@ -144,7 +144,7 @@ export default function StudentGrowth() {
               {records.length === 0 ? (
                 <div className="text-center py-12 text-slate-500">
                   <Clock size={48} className="mx-auto mb-4 opacity-50" />
-                  <p>还没有测评记录，快去开始第一次测评吧！</p>
+                  <p>还没有测评记录，快去开始第一次测评吧�?/p>
                 </div>
               ) : (
                 records.map((record, index) => (
@@ -166,12 +166,10 @@ export default function StudentGrowth() {
                           record.level === 'C' ? 'bg-amber-100 text-amber-700' :
                           'bg-red-100 text-red-700'
                         }`}>
-                          {record.level}级
-                        </span>
+                          {record.level}�?                        </span>
                       </div>
                       <p className={`text-sm mt-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                        得分: {record.score}分 | 用时: {Math.floor((record.duration || 0) / 60)}分{record.duration % 60}秒
-                      </p>
+                        得分: {record.score}�?| 用时: {Math.floor((record.duration || 0) / 60)}分{record.duration % 60}�?                      </p>
                       <p className={`text-xs mt-1 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
                         {formatDate(record.created_at)}
                       </p>
@@ -202,8 +200,7 @@ export default function StudentGrowth() {
                   <p className={`text-xs mt-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{badge.description}</p>
                   {badge.earned && (
                     <span className="inline-block mt-2 px-2 py-0.5 bg-green-100 text-green-700 text-xs rounded-full">
-                      已获得
-                    </span>
+                      已获�?                    </span>
                   )}
                 </div>
               ))}
@@ -217,7 +214,7 @@ export default function StudentGrowth() {
               ) : (
                 <div className="text-center py-12 text-slate-500">
                   <TrendingUp size={48} className="mx-auto mb-4 opacity-50" />
-                  <p>需要至少2次测评记录才能展示成长曲线</p>
+                  <p>需要至�?次测评记录才能展示成长曲�?/p>
                 </div>
               )}
             </div>
@@ -228,7 +225,7 @@ export default function StudentGrowth() {
               {records.length === 0 ? (
                 <div className="text-center py-12 text-slate-500">
                   <Award size={48} className="mx-auto mb-4 opacity-50" />
-                  <p>暂无证书，完成测评后可获得</p>
+                  <p>暂无证书，完成测评后可获�?/p>
                 </div>
               ) : (
                 records.filter((r) => r.level === 'A' || r.level === 'B').map((record) => (
@@ -243,8 +240,7 @@ export default function StudentGrowth() {
                         {record.level === 'A' ? '优秀学员证书' : '良好学员证书'}
                       </h3>
                       <p className={`text-sm mt-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                        {record.exam_name || '测评证书'} · {record.score}分 · {record.level}级
-                      </p>
+                        {record.exam_name || '测评证书'} · {record.score}�?· {record.level}�?                      </p>
                       <p className={`text-xs mt-1 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
                         {formatDate(record.created_at)}
                       </p>
@@ -252,8 +248,7 @@ export default function StudentGrowth() {
                     <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                       record.level === 'A' ? 'bg-emerald-100 text-emerald-700' : 'bg-blue-100 text-blue-700'
                     }`}>
-                      {record.level}级
-                    </span>
+                      {record.level}�?                    </span>
                   </div>
                 ))
               )}

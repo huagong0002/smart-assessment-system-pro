@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { certificateApi, studentApi, examApi } from '../../api/client';
+import { certificateApi, studentApi, examApi } from '../../api-client/client';
 import { useTheme } from '../../components/ThemeProvider';
 import PageHeader from '../../components/PageHeader';
 import StatCards from '../../components/StatCards';
@@ -68,7 +68,7 @@ export default function AdminCertificates() {
   };
 
   const handleDelete = async (id: number) => {
-    if (!confirm('确定要删除这个证书吗？')) return;
+    if (!confirm('确定要删除这个证书吗�?)) return;
     try {
       await certificateApi.delete(id);
       loadData();
@@ -134,7 +134,7 @@ export default function AdminCertificates() {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
             <input
               type="text"
-              placeholder="搜索学生姓名或证书编号..."
+              placeholder="搜索学生姓名或证书编�?.."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-10 pr-4 py-2 rounded-xl border border-slate-200 dark:border-slate-600 bg-transparent text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20"
@@ -151,7 +151,7 @@ export default function AdminCertificates() {
                 <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">课程</th>
                 <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">等级</th>
                 <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">颁发日期</th>
-                <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">状态</th>
+                <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">状�?/th>
                 <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">操作</th>
               </tr>
             </thead>
@@ -289,7 +289,7 @@ export default function AdminCertificates() {
                 <span className={`text-sm font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{formatDate(showDetail.issue_date)}</span>
               </div>
               <div className="flex justify-between">
-                <span className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>状态</span>
+                <span className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>状�?/span>
                 <span className={`text-sm font-medium ${showDetail.status === 'active' ? 'text-emerald-600' : 'text-slate-500'}`}>
                   {showDetail.status === 'active' ? '有效' : '失效'}
                 </span>

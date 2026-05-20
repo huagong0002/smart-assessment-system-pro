@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../../stores/authStore';
-import { studentApi, examApi, configApi } from '../../api/client';
+import { studentApi, examApi, configApi } from '../../api-client/client';
 import { Sparkles, Code, Brain, Star, Clock, ClipboardList, ChevronRight, History } from 'lucide-react';
 import InfoRequiredModal from '../../components/InfoRequiredModal';
 import { formatDate } from '../../utils/dateFormat';
@@ -21,7 +21,7 @@ const examTypes = [
   },
   {
     id: 'scratch',
-    title: 'Scratch图形化编程',
+    title: 'Scratch图形化编�?,
     desc: '积木式编程、趣味动画与游戏',
     icon: <Code size={24} />,
     color: 'amber',
@@ -34,7 +34,7 @@ const examTypes = [
   {
     id: 'python',
     title: 'Python编程',
-    desc: '代码编程、游戏开发、算法入门',
+    desc: '代码编程、游戏开发、算法入�?,
     icon: <Code size={24} />,
     color: 'blue',
     bgColor: 'bg-blue-500',
@@ -57,8 +57,8 @@ const examTypes = [
   },
   {
     id: 'aigc',
-    title: 'AIGC素养课',
-    desc: 'AI绘画、AI音视频、智能体开发',
+    title: 'AIGC素养�?,
+    desc: 'AI绘画、AI音视频、智能体开�?,
     icon: <Sparkles size={24} />,
     color: 'purple',
     bgColor: 'bg-purple-500',
@@ -203,7 +203,7 @@ export default function StudentExam() {
 
     const typeNames: Record<string, string> = {
       aigc: 'AIGC素养',
-      scratch: 'Scratch图形化编程',
+      scratch: 'Scratch图形化编�?,
       python: 'Python编程',
       cpp: 'C++算法',
       math: '数理逻辑测评',
@@ -273,7 +273,7 @@ export default function StudentExam() {
                 <div className="flex-1">
                   <h3 className="text-xl font-bold text-slate-800">{recommendedType.title}</h3>
                   <p className="text-sm text-slate-500 mt-1">{recommendedType.desc}</p>
-                  <p className="text-xs text-slate-400 mt-2">{examConfig.question_count}道题 · {examConfig.time_limit}分钟 · 客观题为主</p>
+                  <p className="text-xs text-slate-400 mt-2">{examConfig.question_count}道题 · {examConfig.time_limit}分钟 · 客观题为�?/p>
                 </div>
               </div>
             </button>
@@ -349,7 +349,7 @@ export default function StudentExam() {
                         <Clock size={12} />
                         {formatDate(record.created_at)}
                       </span>
-                      <span>{Math.floor(record.duration / 60)}分{record.duration % 60}秒</span>
+                      <span>{Math.floor(record.duration / 60)}分{record.duration % 60}�?/span>
                     </div>
                   </div>
                   <div className="text-right shrink-0">

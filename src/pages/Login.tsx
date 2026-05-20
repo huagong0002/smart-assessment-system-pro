@@ -66,7 +66,7 @@ export default function Login() {
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-2">
                 账号
-                {accountType === 'phone' && <span className="text-emerald-500 text-xs ml-2">手机号</span>}
+                {accountType === 'phone' && <span className="text-emerald-500 text-xs ml-2">手机�?/span>}
                 {accountType === 'email' && <span className="text-emerald-500 text-xs ml-2">邮箱</span>}
               </label>
               <div className="relative">
@@ -82,7 +82,7 @@ export default function Login() {
                   value={account}
                   onChange={(e) => setAccount(e.target.value)}
                   className="input-field pl-11"
-                  placeholder="用户名 / 手机号 / 邮箱"
+                  placeholder="用户�?/ 手机�?/ 邮箱"
                   required
                 />
               </div>
@@ -97,7 +97,7 @@ export default function Login() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="input-field pl-11 pr-11"
-                  placeholder="请输入密码"
+                  placeholder="请输入密�?
                   required
                 />
                 <button
@@ -121,7 +121,7 @@ export default function Login() {
               disabled={loading}
               className="w-full btn-primary py-3.5 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {loading ? '登录中...' : '登录'}
+              {loading ? '登录�?..' : '登录'}
             </button>
           </form>
 
@@ -135,7 +135,7 @@ export default function Login() {
           </div>
 
           <div className="mt-4 p-4 bg-blue-50 rounded-2xl">
-            <p className="text-xs text-blue-700 font-medium mb-2">演示账号：</p>
+            <p className="text-xs text-blue-700 font-medium mb-2">演示账号�?/p>
             <div className="space-y-1 text-xs text-blue-600">
               <p>管理员：admin / admin123</p>
               <p>教师：teacher1 / teacher123</p>

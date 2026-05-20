@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../../stores/authStore';
-import { studentApi } from '../../api/client';
+import { studentApi } from '../../api-client/client';
 import { useTheme } from '../../components/ThemeProvider';
 import PageHeader from '../../components/PageHeader';
 import {
@@ -53,7 +53,7 @@ const initialFormData: FormData = {
 const steps = [
   { id: 1, title: '基础信息', icon: 'User' },
   { id: 2, title: '学习背景', icon: 'GraduationCap' },
-  { id: 3, title: '兴趣与条件', icon: 'Heart' },
+  { id: 3, title: '兴趣与条�?, icon: 'Heart' },
   { id: 4, title: '能力自评', icon: 'Sparkles' },
 ] as const;
 
@@ -298,15 +298,15 @@ export default function StudentBaseInfo() {
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           className="input-field"
-          placeholder="请输入姓名"
+          placeholder="请输入姓�?
         />
       </div>
 
       <div>
         <RequiredLabel>性别</RequiredLabel>
         <div className="grid grid-cols-2 gap-3">
-          {renderOptionCard('gender-male', '男', formData.gender === 'male', () => handleSingleSelect('gender', 'male'), <User size={16} />)}
-          {renderOptionCard('gender-female', '女', formData.gender === 'female', () => handleSingleSelect('gender', 'female'), <User size={16} />)}
+          {renderOptionCard('gender-male', '�?, formData.gender === 'male', () => handleSingleSelect('gender', 'male'), <User size={16} />)}
+          {renderOptionCard('gender-female', '�?, formData.gender === 'female', () => handleSingleSelect('gender', 'female'), <User size={16} />)}
         </div>
       </div>
 
@@ -320,7 +320,7 @@ export default function StudentBaseInfo() {
           >
             <option value="">选择年份</option>
             {Array.from({ length: 51 }, (_, i) => 1990 + i).map((y) => (
-              <option key={y} value={String(y)}>{y}年</option>
+              <option key={y} value={String(y)}>{y}�?/option>
             ))}
           </select>
           <select
@@ -330,7 +330,7 @@ export default function StudentBaseInfo() {
           >
             <option value="">选择月份</option>
             {Array.from({ length: 12 }, (_, i) => i + 1).map((m) => (
-              <option key={m} value={String(m).padStart(2, '0')}>{m}月</option>
+              <option key={m} value={String(m).padStart(2, '0')}>{m}�?/option>
             ))}
           </select>
         </div>
@@ -343,7 +343,7 @@ export default function StudentBaseInfo() {
           value={formData.school}
           onChange={(e) => setFormData({ ...formData, school: e.target.value })}
           className="input-field"
-          placeholder="请输入学校名称"
+          placeholder="请输入学校名�?
         />
       </div>
 
@@ -368,7 +368,7 @@ export default function StudentBaseInfo() {
       <div>
         <RequiredLabel>数学成绩水平</RequiredLabel>
         <div className="space-y-2">
-          {['优秀（90分以上）', '良好（80-89分）', '中等（70-79分）', '需提高（70分以下）'].map((opt) =>
+          {['优秀�?0分以上）', '良好�?0-89分）', '中等�?0-79分）', '需提高�?0分以下）'].map((opt) =>
             renderOptionCard(`math-${opt}`, opt, formData.math_score === opt, () => handleSingleSelect('math_score', opt), <Calculator size={16} />)
           )}
         </div>
@@ -395,7 +395,7 @@ export default function StudentBaseInfo() {
       <div>
         <label className="block text-sm font-medium text-slate-700 mb-3">获奖情况（可多选）</label>
         <div className="space-y-2">
-          {['无', '数学竞赛获奖', '信息学竞赛获奖', '科技创新大赛获奖', '其他奖项'].map((opt) =>
+          {['�?, '数学竞赛获奖', '信息学竞赛获�?, '科技创新大赛获奖', '其他奖项'].map((opt) =>
             renderMultiOptionCard(`award-${opt}`, opt, formData.awards.includes(opt), () => handleMultiSelect('awards', opt))
           )}
         </div>
@@ -408,17 +408,16 @@ export default function StudentBaseInfo() {
       <div className="p-4 bg-amber-50 border border-amber-200 rounded-2xl">
         <div className="flex items-center gap-2 text-amber-700 text-sm font-medium">
           <Lightbulb size={16} />
-          兴趣与条件是智能推荐的重要依据，请认真填写
-        </div>
+          兴趣与条件是智能推荐的重要依据，请认真填�?        </div>
       </div>
 
       <div>
-        <RequiredLabel>AIGC课程兴趣度</RequiredLabel>
+        <RequiredLabel>AIGC课程兴趣�?/RequiredLabel>
         <div className="space-y-2">
           {[
-            { label: '非常感兴趣', value: '4' },
-            { label: '感兴趣', value: '3' },
-            { label: '一般', value: '2' },
+            { label: '非常感兴�?, value: '4' },
+            { label: '感兴�?, value: '3' },
+            { label: '一�?, value: '2' },
             { label: '不感兴趣', value: '1' },
           ].map((opt) =>
             renderOptionCard(`aigc-${opt.value}`, opt.label, formData.interest_aigc === opt.value, () => handleSingleSelect('interest_aigc', opt.value), <Heart size={16} />)
@@ -427,12 +426,12 @@ export default function StudentBaseInfo() {
       </div>
 
       <div>
-        <RequiredLabel>编程课程兴趣度</RequiredLabel>
+        <RequiredLabel>编程课程兴趣�?/RequiredLabel>
         <div className="space-y-2">
           {[
-            { label: '非常感兴趣', value: '4' },
-            { label: '感兴趣', value: '3' },
-            { label: '一般', value: '2' },
+            { label: '非常感兴�?, value: '4' },
+            { label: '感兴�?, value: '3' },
+            { label: '一�?, value: '2' },
             { label: '不感兴趣', value: '1' },
           ].map((opt) =>
             renderOptionCard(`prog-int-${opt.value}`, opt.label, formData.interest_programming === opt.value, () => handleSingleSelect('interest_programming', opt.value), <Code size={16} />)
@@ -441,9 +440,9 @@ export default function StudentBaseInfo() {
       </div>
 
       <div>
-        <RequiredLabel>家中是否有电脑/平板</RequiredLabel>
+        <RequiredLabel>家中是否有电�?平板</RequiredLabel>
         <div className="grid grid-cols-3 gap-3">
-          {['有电脑', '有平板', '没有'].map((opt) =>
+          {['有电�?, '有平�?, '没有'].map((opt) =>
             renderOptionCard(`pc-${opt}`, opt, formData.has_computer === opt, () => handleSingleSelect('has_computer', opt), <Monitor size={16} />)
           )}
         </div>
@@ -452,14 +451,14 @@ export default function StudentBaseInfo() {
       <div>
         <RequiredLabel>家长支持程度</RequiredLabel>
         <div className="space-y-2">
-          {['非常支持', '支持', '一般', '不太支持'].map((opt) =>
+          {['非常支持', '支持', '一�?, '不太支持'].map((opt) =>
             renderOptionCard(`parent-${opt}`, opt, formData.parent_support === opt, () => handleSingleSelect('parent_support', opt), <Users size={16} />)
           )}
         </div>
       </div>
 
       <div>
-        <RequiredLabel>每周可学习时间</RequiredLabel>
+        <RequiredLabel>每周可学习时�?/RequiredLabel>
         <div className="grid grid-cols-3 gap-3">
           {['1-2小时', '3-5小时', '5小时以上'].map((opt) =>
             renderOptionCard(`time-${opt}`, opt, formData.learning_time === opt, () => handleSingleSelect('learning_time', opt), <Clock size={16} />)
@@ -474,7 +473,7 @@ export default function StudentBaseInfo() {
       <div>
         <RequiredLabel>逻辑思维能力自评</RequiredLabel>
         <div className="space-y-2">
-          {['强（善于推理分析）', '中等（有一定基础）', '需培养（希望提升）'].map((opt) =>
+          {['强（善于推理分析�?, '中等（有一定基础�?, '需培养（希望提升）'].map((opt) =>
             renderOptionCard(`logic-${opt}`, opt, formData.logical_ability === opt, () => handleSingleSelect('logical_ability', opt), <Brain size={16} />)
           )}
         </div>
@@ -483,7 +482,7 @@ export default function StudentBaseInfo() {
       <div>
         <label className="block text-sm font-medium text-slate-700 mb-3">已学过的相关课程（可多选）</label>
         <div className="space-y-2">
-          {['无', 'Scratch编程', 'Python编程', '机器人课程', '奥数/数学思维', '其他'].map((opt) =>
+          {['�?, 'Scratch编程', 'Python编程', '机器人课�?, '奥数/数学思维', '其他'].map((opt) =>
             renderMultiOptionCard(`prior-${opt}`, opt, formData.prior_courses.includes(opt), () => handleMultiSelect('prior_courses', opt))
           )}
         </div>
@@ -502,7 +501,7 @@ export default function StudentBaseInfo() {
 
         <div className="mb-6">
           <h2 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-slate-800'}`}>{steps[currentStep - 1].title}</h2>
-          <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>请完成以下问题，带 <span className="text-red-500">*</span> 为必填项</p>
+          <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>请完成以下问题，�?<span className="text-red-500">*</span> 为必填项</p>
         </div>
 
         {stepContent[currentStep - 1]()}
@@ -510,7 +509,7 @@ export default function StudentBaseInfo() {
         {saved && (
           <div className="flex items-center gap-2 p-3 border rounded-2xl text-sm mt-6 bg-emerald-50 border-emerald-200 text-emerald-600">
             <Check size={16} />
-            {isFirstTime ? '保存成功，正在进入智能组卷...' : '保存成功！'}
+            {isFirstTime ? '保存成功，正在进入智能组�?..' : '保存成功�?}
           </div>
         )}
 
@@ -526,7 +525,7 @@ export default function StudentBaseInfo() {
             }}
             className="btn-secondary flex items-center gap-2"
           >
-            {currentStep === 1 ? <><X size={18} /> 返回</> : <><ChevronLeft size={18} /> 上一步</>}
+            {currentStep === 1 ? <><X size={18} /> 返回</> : <><ChevronLeft size={18} /> 上一�?/>}
           </button>
 
           {currentStep < 4 ? (
@@ -538,8 +537,7 @@ export default function StudentBaseInfo() {
               disabled={!canProceed()}
               className="btn-primary flex items-center gap-2 disabled:opacity-50"
             >
-              下一步
-              <ChevronRight size={18} />
+              下一�?              <ChevronRight size={18} />
             </button>
           ) : (
             <button
@@ -548,7 +546,7 @@ export default function StudentBaseInfo() {
               className="btn-primary flex items-center gap-2 disabled:opacity-50"
             >
               <Save size={18} />
-              {saving ? '保存中...' : isFirstTime ? '保存信息' : '保存修改'}
+              {saving ? '保存�?..' : isFirstTime ? '保存信息' : '保存修改'}
             </button>
           )}
         </div>
@@ -565,21 +563,19 @@ export default function StudentBaseInfo() {
             </div>
             <h3 className={`text-lg font-bold text-center mb-2 ${isDark ? 'text-white' : 'text-slate-800'}`}>确认保存</h3>
             <p className={`text-sm text-center mb-6 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-              请确认您的个人信息填写无误，保存后将更新您的测评推荐结果。
-            </p>
+              请确认您的个人信息填写无误，保存后将更新您的测评推荐结果�?            </p>
             <div className="flex gap-3">
               <button
                 onClick={() => setShowConfirmModal(false)}
                 className="flex-1 btn-secondary py-2.5"
               >
-                再检查一下
-              </button>
+                再检查一�?              </button>
               <button
                 onClick={handleSubmit}
                 disabled={saving}
                 className="flex-1 btn-primary py-2.5 disabled:opacity-50"
               >
-                {saving ? '保存中...' : '确认保存'}
+                {saving ? '保存�?..' : '确认保存'}
               </button>
             </div>
           </div>

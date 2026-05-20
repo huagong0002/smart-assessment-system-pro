@@ -28,7 +28,7 @@ export function formatDateShort(dateStr: string | null | undefined): string {
   if (!dateStr) return '-';
   const match = dateStr.match(/^(\d{4})-(\d{2})-(\d{2})/);
   if (match) {
-    return `${parseInt(match[2])}月${parseInt(match[3])}日`;
+    return `${parseInt(match[2])}�?{parseInt(match[3])}日`;
   }
   return dateStr;
 }

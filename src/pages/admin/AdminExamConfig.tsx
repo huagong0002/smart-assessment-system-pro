@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
-import { configApi } from '../../api/client';
+import { configApi } from '../../api-client/client';
 import { Settings, Save, Check, SlidersHorizontal, BarChart3, FileText, Sparkles } from 'lucide-react';
 
 interface ExamConfig {
-  // 等级分数线
-  level_a_min: string;
+  // 等级分数�?  level_a_min: string;
   level_b_min: string;
   level_c_min: string;
   level_d_max: string;
@@ -52,13 +51,13 @@ const defaultConfig: ExamConfig = {
 const reportTemplates = [
   { value: 'default', label: '默认模板' },
   { value: 'detailed', label: '详细分析报告' },
-  { value: 'simple', label: '简洁报告' },
-  { value: 'parent', label: '家长版报告' },
+  { value: 'simple', label: '简洁报�? },
+  { value: 'parent', label: '家长版报�? },
 ];
 
 const dimensionLabels: Record<string, string> = {
   dimension_cognitive_weight: '认知能力',
-  dimension_skill_weight: '技能水平',
+  dimension_skill_weight: '技能水�?,
   dimension_quality_weight: '素质素养',
   dimension_innovation_weight: '创新能力',
   dimension_collaboration_weight: '协作能力',
@@ -126,7 +125,7 @@ export default function AdminExamConfig() {
   }
 
   const tabs = [
-    { key: 'levels' as const, label: '等级分数线', icon: <BarChart3 size={16} /> },
+    { key: 'levels' as const, label: '等级分数�?, icon: <BarChart3 size={16} /> },
     { key: 'default' as const, label: '默认配置', icon: <SlidersHorizontal size={16} /> },
     { key: 'dimensions' as const, label: '维度权重', icon: <Settings size={16} /> },
     { key: 'report' as const, label: '报告配置', icon: <FileText size={16} /> },
@@ -143,7 +142,7 @@ export default function AdminExamConfig() {
           className="btn-primary py-2 px-4 flex items-center gap-2 disabled:opacity-50"
         >
           <Save size={16} />
-          {saving ? '保存中...' : '保存配置'}
+          {saving ? '保存�?..' : '保存配置'}
         </button>
       </div>
 
@@ -173,7 +172,7 @@ export default function AdminExamConfig() {
       </div>
 
       <div className="glass-card rounded-3xl p-6 lg:p-8">
-        {/* 等级分数线 */}
+        {/* 等级分数�?*/}
         {activeTab === 'levels' && (
           <div className="space-y-6">
             <div className="flex items-center gap-3 mb-4">
@@ -181,18 +180,17 @@ export default function AdminExamConfig() {
                 <BarChart3 className="text-blue-600" size={20} />
               </div>
               <div>
-                <h2 className="text-lg font-bold text-slate-800">能力等级分数线</h2>
-                <p className="text-sm text-slate-500">设置测评结果的能力等级划分标准</p>
+                <h2 className="text-lg font-bold text-slate-800">能力等级分数�?/h2>
+                <p className="text-sm text-slate-500">设置测评结果的能力等级划分标�?/p>
               </div>
             </div>
 
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <div className="w-16 px-2 py-1 bg-emerald-100 text-emerald-600 text-xs font-bold rounded-lg text-center">
-                  A级
-                </div>
+                  A�?                </div>
                 <div className="flex-1">
-                  <label className="block text-xs text-slate-500 mb-1">最低分数</label>
+                  <label className="block text-xs text-slate-500 mb-1">最低分�?/label>
                   <input
                     type="number"
                     value={config.level_a_min}
@@ -202,15 +200,14 @@ export default function AdminExamConfig() {
                     max={100}
                   />
                 </div>
-                <span className="text-sm text-slate-500">{config.level_a_min}-100分</span>
+                <span className="text-sm text-slate-500">{config.level_a_min}-100�?/span>
               </div>
 
               <div className="flex items-center gap-4">
                 <div className="w-16 px-2 py-1 bg-blue-100 text-blue-600 text-xs font-bold rounded-lg text-center">
-                  B级
-                </div>
+                  B�?                </div>
                 <div className="flex-1">
-                  <label className="block text-xs text-slate-500 mb-1">最低分数</label>
+                  <label className="block text-xs text-slate-500 mb-1">最低分�?/label>
                   <input
                     type="number"
                     value={config.level_b_min}
@@ -220,15 +217,14 @@ export default function AdminExamConfig() {
                     max={100}
                   />
                 </div>
-                <span className="text-sm text-slate-500">{config.level_b_min}-{parseInt(config.level_a_min) - 1}分</span>
+                <span className="text-sm text-slate-500">{config.level_b_min}-{parseInt(config.level_a_min) - 1}�?/span>
               </div>
 
               <div className="flex items-center gap-4">
                 <div className="w-16 px-2 py-1 bg-amber-100 text-amber-600 text-xs font-bold rounded-lg text-center">
-                  C级
-                </div>
+                  C�?                </div>
                 <div className="flex-1">
-                  <label className="block text-xs text-slate-500 mb-1">最低分数</label>
+                  <label className="block text-xs text-slate-500 mb-1">最低分�?/label>
                   <input
                     type="number"
                     value={config.level_c_min}
@@ -238,15 +234,14 @@ export default function AdminExamConfig() {
                     max={100}
                   />
                 </div>
-                <span className="text-sm text-slate-500">{config.level_c_min}-{parseInt(config.level_b_min) - 1}分</span>
+                <span className="text-sm text-slate-500">{config.level_c_min}-{parseInt(config.level_b_min) - 1}�?/span>
               </div>
 
               <div className="flex items-center gap-4">
                 <div className="w-16 px-2 py-1 bg-red-100 text-red-600 text-xs font-bold rounded-lg text-center">
-                  D级
-                </div>
+                  D�?                </div>
                 <div className="flex-1">
-                  <label className="block text-xs text-slate-500 mb-1">最高分数</label>
+                  <label className="block text-xs text-slate-500 mb-1">最高分�?/label>
                   <input
                     type="number"
                     value={config.level_d_max}
@@ -256,7 +251,7 @@ export default function AdminExamConfig() {
                     max={100}
                   />
                 </div>
-                <span className="text-sm text-slate-500">0-{config.level_d_max}分</span>
+                <span className="text-sm text-slate-500">0-{config.level_d_max}�?/span>
               </div>
             </div>
           </div>
@@ -298,7 +293,7 @@ export default function AdminExamConfig() {
                   min={10}
                   max={180}
                 />
-                <p className="text-xs text-slate-400 mt-1">测评时间限制，范围 10-180 分钟</p>
+                <p className="text-xs text-slate-400 mt-1">测评时间限制，范�?10-180 分钟</p>
               </div>
             </div>
           </div>
@@ -313,7 +308,7 @@ export default function AdminExamConfig() {
               </div>
               <div>
                 <h2 className="text-lg font-bold text-slate-800">能力维度权重</h2>
-                <p className="text-sm text-slate-500">配置六大能力维度在测评中的权重占比</p>
+                <p className="text-sm text-slate-500">配置六大能力维度在测评中的权重占�?/p>
               </div>
             </div>
 
@@ -322,7 +317,7 @@ export default function AdminExamConfig() {
                 ? 'bg-emerald-50 text-emerald-600 border border-emerald-200'
                 : 'bg-amber-50 text-amber-600 border border-amber-200'
             }`}>
-              当前总权重: {getTotalWeight()}% {getTotalWeight() === 100 ? '✓' : '(应为100%)'}
+              当前总权�? {getTotalWeight()}% {getTotalWeight() === 100 ? '�? : '(应为100%)'}
             </div>
 
             <div className="space-y-4">
@@ -392,8 +387,8 @@ export default function AdminExamConfig() {
                     className="w-5 h-5 text-blue-600 rounded border-slate-300 focus:ring-blue-500"
                   />
                   <div>
-                    <div className="text-sm font-medium text-slate-700">包含雷达图</div>
-                    <div className="text-xs text-slate-500">在报告中展示能力维度雷达图</div>
+                    <div className="text-sm font-medium text-slate-700">包含雷达�?/div>
+                    <div className="text-xs text-slate-500">在报告中展示能力维度雷达�?/div>
                   </div>
                 </label>
 
@@ -406,7 +401,7 @@ export default function AdminExamConfig() {
                   />
                   <div>
                     <div className="text-sm font-medium text-slate-700">包含成长趋势</div>
-                    <div className="text-xs text-slate-500">展示历次测评的成长变化曲线</div>
+                    <div className="text-xs text-slate-500">展示历次测评的成长变化曲�?/div>
                   </div>
                 </label>
 
@@ -436,7 +431,7 @@ export default function AdminExamConfig() {
               </div>
               <div>
                 <h2 className="text-lg font-bold text-slate-800">AI配置</h2>
-                <p className="text-sm text-slate-500">配置AI辅助功能开关</p>
+                <p className="text-sm text-slate-500">配置AI辅助功能开�?/p>
               </div>
             </div>
 
@@ -463,7 +458,7 @@ export default function AdminExamConfig() {
                 />
                 <div>
                   <div className="text-sm font-medium text-slate-700">AI题目审核</div>
-                  <div className="text-xs text-slate-500">使用AI审核题目质量和准确性</div>
+                  <div className="text-xs text-slate-500">使用AI审核题目质量和准确�?/div>
                 </div>
               </label>
             </div>

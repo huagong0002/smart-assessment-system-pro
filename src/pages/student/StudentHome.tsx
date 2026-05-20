@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../../stores/authStore';
-import { studentApi, examApi, noticeApi, dashboardApi } from '../../api/client';
+import { studentApi, examApi, noticeApi, dashboardApi } from '../../api-client/client';
 import { ClipboardList, BarChart3, Bell, Sparkles, Clock, TrendingUp, Trophy, Target, Medal } from 'lucide-react';
 import GrowthChart from '../../components/GrowthChart';
 import MiniRadar from '../../components/MiniRadar';
@@ -46,7 +46,7 @@ export default function StudentHome() {
   const menuItems = [
     {
       title: '在线测评',
-      desc: '开始新的入学测评',
+      desc: '开始新的入学测�?,
       icon: <ClipboardList size={24} />,
       path: '/student/exam',
       color: 'bg-blue-500',
@@ -62,7 +62,7 @@ export default function StudentHome() {
     },
     {
       title: '成长档案',
-      desc: '查看成长轨迹与徽章',
+      desc: '查看成长轨迹与徽�?,
       icon: <Trophy size={24} />,
       path: '/student/growth',
       color: 'bg-purple-500',
@@ -131,7 +131,7 @@ export default function StudentHome() {
 
       {latestRecord && (
         <div className="glass-card rounded-3xl p-6">
-          <h2 className="text-lg font-bold text-slate-800 mb-4">最新测评</h2>
+          <h2 className="text-lg font-bold text-slate-800 mb-4">最新测�?/h2>
           <div className="grid grid-cols-3 gap-4">
             <div className="text-center p-4 bg-blue-50 rounded-2xl">
               <p className="text-2xl font-bold text-blue-600">{latestRecord.score}</p>
@@ -151,7 +151,7 @@ export default function StudentHome() {
         </div>
       )}
 
-      {/* 能力雷达图 - 最新测评 */}
+      {/* 能力雷达�?- 最新测�?*/}
       {latestRecord && (
         <div className="glass-card rounded-3xl p-6">
           <div className="flex items-center gap-3 mb-4">
@@ -159,8 +159,8 @@ export default function StudentHome() {
               <Target className="text-blue-600" size={20} />
             </div>
             <div>
-              <h2 className="text-lg font-bold text-slate-800">能力雷达图</h2>
-              <p className="text-sm text-slate-500">最新测评能力维度分布</p>
+              <h2 className="text-lg font-bold text-slate-800">能力雷达�?/h2>
+              <p className="text-sm text-slate-500">最新测评能力维度分�?/p>
             </div>
           </div>
           <MiniRadar record={latestRecord} />
@@ -169,7 +169,7 @@ export default function StudentHome() {
 
       <GrowthChart records={records} />
 
-      {/* 活跃排行榜 */}
+      {/* 活跃排行�?*/}
       {leaderboard.length > 0 && (
         <div className="glass-card rounded-3xl p-6">
           <div className="flex items-center gap-3 mb-4">
@@ -177,7 +177,7 @@ export default function StudentHome() {
               <Medal className="text-amber-600" size={20} />
             </div>
             <div>
-              <h2 className="text-lg font-bold text-slate-800">活跃排行榜</h2>
+              <h2 className="text-lg font-bold text-slate-800">活跃排行�?/h2>
               <p className="text-sm text-slate-500">测评次数最多的同学</p>
             </div>
           </div>
@@ -194,7 +194,7 @@ export default function StudentHome() {
                 </div>
                 <div className="flex-1">
                   <p className="text-sm font-medium text-slate-800">{s.name}</p>
-                  <p className="text-xs text-slate-500">{s.exam_count}次测评 · 平均{s.avg_score ? Math.round(s.avg_score) : 0}%</p>
+                  <p className="text-xs text-slate-500">{s.exam_count}次测�?· 平均{s.avg_score ? Math.round(s.avg_score) : 0}%</p>
                 </div>
                 {idx < 3 && <Medal size={16} className={idx === 0 ? 'text-amber-500' : idx === 1 ? 'text-slate-400' : 'text-orange-400'} />}
               </div>
@@ -216,8 +216,7 @@ export default function StudentHome() {
             onClick={() => navigate('/student/info')}
             className="mt-4 btn-primary bg-amber-500 hover:bg-amber-600"
           >
-            去填写
-          </button>
+            去填�?          </button>
         </div>
       )}
     </div>

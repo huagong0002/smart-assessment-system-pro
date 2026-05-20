@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { configApi } from '../../api/client';
+import { configApi } from '../../api-client/client';
 import { Settings, Save, Check } from 'lucide-react';
 
 export default function AdminConfig() {
@@ -60,20 +60,19 @@ export default function AdminConfig() {
           </div>
           <div>
             <h2 className="text-lg font-bold text-slate-800">系统配置</h2>
-            <p className="text-sm text-slate-500">配置测评系统的各项参数</p>
+            <p className="text-sm text-slate-500">配置测评系统的各项参�?/p>
           </div>
         </div>
 
         <div className="space-y-6">
           <div>
-            <h3 className="text-sm font-bold text-slate-800 mb-4">能力等级分数线</h3>
+            <h3 className="text-sm font-bold text-slate-800 mb-4">能力等级分数�?/h3>
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <div className="w-16 px-2 py-1 bg-emerald-100 text-emerald-600 text-xs font-bold rounded-lg text-center">
-                  A级
-                </div>
+                  A�?                </div>
                 <div className="flex-1">
-                  <label className="block text-xs text-slate-500 mb-1">最低分数</label>
+                  <label className="block text-xs text-slate-500 mb-1">最低分�?/label>
                   <input
                     type="number"
                     value={config.level_a_min || '90'}
@@ -83,15 +82,14 @@ export default function AdminConfig() {
                     max={100}
                   />
                 </div>
-                <span className="text-sm text-slate-500">90-100分</span>
+                <span className="text-sm text-slate-500">90-100�?/span>
               </div>
 
               <div className="flex items-center gap-4">
                 <div className="w-16 px-2 py-1 bg-blue-100 text-blue-600 text-xs font-bold rounded-lg text-center">
-                  B级
-                </div>
+                  B�?                </div>
                 <div className="flex-1">
-                  <label className="block text-xs text-slate-500 mb-1">最低分数</label>
+                  <label className="block text-xs text-slate-500 mb-1">最低分�?/label>
                   <input
                     type="number"
                     value={config.level_b_min || '80'}
@@ -101,15 +99,14 @@ export default function AdminConfig() {
                     max={100}
                   />
                 </div>
-                <span className="text-sm text-slate-500">80-89分</span>
+                <span className="text-sm text-slate-500">80-89�?/span>
               </div>
 
               <div className="flex items-center gap-4">
                 <div className="w-16 px-2 py-1 bg-amber-100 text-amber-600 text-xs font-bold rounded-lg text-center">
-                  C级
-                </div>
+                  C�?                </div>
                 <div className="flex-1">
-                  <label className="block text-xs text-slate-500 mb-1">最低分数</label>
+                  <label className="block text-xs text-slate-500 mb-1">最低分�?/label>
                   <input
                     type="number"
                     value={config.level_c_min || '70'}
@@ -119,15 +116,14 @@ export default function AdminConfig() {
                     max={100}
                   />
                 </div>
-                <span className="text-sm text-slate-500">70-79分</span>
+                <span className="text-sm text-slate-500">70-79�?/span>
               </div>
 
               <div className="flex items-center gap-4">
                 <div className="w-16 px-2 py-1 bg-red-100 text-red-600 text-xs font-bold rounded-lg text-center">
-                  D级
-                </div>
+                  D�?                </div>
                 <div className="flex-1">
-                  <label className="block text-xs text-slate-500 mb-1">最高分数</label>
+                  <label className="block text-xs text-slate-500 mb-1">最高分�?/label>
                   <input
                     type="number"
                     value={config.level_d_max || '69'}
@@ -137,7 +133,7 @@ export default function AdminConfig() {
                     max={100}
                   />
                 </div>
-                <span className="text-sm text-slate-500">0-{config.level_d_max || 69}分</span>
+                <span className="text-sm text-slate-500">0-{config.level_d_max || 69}�?/span>
               </div>
             </div>
           </div>
@@ -184,7 +180,7 @@ export default function AdminConfig() {
           className="w-full btn-primary py-3 flex items-center justify-center gap-2 disabled:opacity-50 mt-6"
         >
           <Save size={18} />
-          {saving ? '保存中...' : '保存配置'}
+          {saving ? '保存�?..' : '保存配置'}
         </button>
       </div>
     </div>

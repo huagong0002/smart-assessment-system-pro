@@ -23,13 +23,12 @@ export default function MiniRadar({ record }: MiniRadarProps) {
 
   const scores = parseScores(record.scores);
 
-  // 6大维度
-  const dimensions = [
+  // 6大维�?  const dimensions = [
     { key: 'cognitive', label: '认知能力' },
-    { key: 'skill', label: '技能能力' },
+    { key: 'skill', label: '技能能�? },
     { key: 'quality', label: '综合素养' },
     { key: 'innovation', label: '创新思维' },
-    { key: 'collaboration', label: '协作沟通' },
+    { key: 'collaboration', label: '协作沟�? },
     { key: 'ethics', label: 'AI伦理' },
   ];
 

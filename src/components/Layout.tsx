@@ -37,29 +37,26 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  // 学生端
-  { path: '/student', label: '首页', icon: <LayoutDashboard size={20} />, roles: ['student'] },
+  // 学生�?  { path: '/student', label: '首页', icon: <LayoutDashboard size={20} />, roles: ['student'] },
   { path: '/student/exam', label: '在线测评', icon: <ClipboardList size={20} />, roles: ['student'] },
   { path: '/student/report', label: '测评报告', icon: <BarChart3 size={20} />, roles: ['student'] },
   { path: '/student/growth', label: '成长档案', icon: <Trophy size={20} />, roles: ['student'] },
   { path: '/student/info', label: '个人中心', icon: <UserCircle size={20} />, roles: ['student'] },
 
-  // 教师端
-  { path: '/teacher', label: '首页', icon: <LayoutDashboard size={20} />, roles: ['teacher'] },
+  // 教师�?  { path: '/teacher', label: '首页', icon: <LayoutDashboard size={20} />, roles: ['teacher'] },
   { path: '/teacher/class', label: '班级管理', icon: <Users size={20} />, roles: ['teacher'] },
   { path: '/teacher/exam', label: '测评管理', icon: <ClipboardList size={20} />, roles: ['teacher'] },
   { path: '/teacher/report', label: '班级报表', icon: <BarChart3 size={20} />, roles: ['teacher'] },
   { path: '/teacher/notice', label: '录取通知', icon: <Bell size={20} />, roles: ['teacher'] },
   { path: '/teacher/students', label: '学生录入', icon: <GraduationCap size={20} />, roles: ['teacher'] },
 
-  // 管理端
-  { path: '/admin', label: '首页', icon: <LayoutDashboard size={20} />, roles: ['admin'] },
+  // 管理�?  { path: '/admin', label: '首页', icon: <LayoutDashboard size={20} />, roles: ['admin'] },
   { path: '/admin/users', label: '用户管理', icon: <Users size={20} />, roles: ['admin'] },
   { path: '/admin/classes', label: '班级管理', icon: <School size={20} />, roles: ['admin'] },
   { path: '/admin/courses', label: '课程管理', icon: <CalendarDays size={20} />, roles: ['admin'] },
   { path: '/admin/questions', label: '题库管理', icon: <BookOpen size={20} />, roles: ['admin'] },
   { path: '/admin/exams', label: '测评管理', icon: <ClipboardList size={20} />, roles: ['admin'] },
-  { path: '/admin/ai-config', label: '智能体管理', icon: <Sparkles size={20} />, roles: ['admin'] },
+  { path: '/admin/ai-config', label: '智能体管�?, icon: <Sparkles size={20} />, roles: ['admin'] },
   { path: '/admin/certificates', label: '证书管理', icon: <Award size={20} />, roles: ['admin'] },
   { path: '/admin/notices', label: '通知管理', icon: <Bell size={20} />, roles: ['admin'] },
 ];
@@ -134,7 +131,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div className="flex-1 min-w-0">
               <p className={`text-sm font-medium truncate ${isDark ? 'text-white' : 'text-slate-800'}`}>{user?.name}</p>
               <p className={`text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                {user?.role === 'student' ? '学生' : user?.role === 'teacher' ? '教师' : '管理员'}
+                {user?.role === 'student' ? '学生' : user?.role === 'teacher' ? '教师' : '管理�?}
               </p>
             </div>
           </div>
@@ -147,8 +144,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             }`}
           >
             <LogOut size={18} />
-            退出登录
-          </button>
+            退出登�?          </button>
         </div>
       </aside>
 
@@ -194,8 +190,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               className="w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-medium text-slate-600 hover:bg-red-50 hover:text-red-600 transition-all duration-200"
             >
               <LogOut size={18} />
-              退出登录
-            </button>
+              退出登�?            </button>
           </nav>
         </div>
       )}

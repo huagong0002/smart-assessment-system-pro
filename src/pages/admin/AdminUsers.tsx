@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { userApi } from '../../api/client';
+import { userApi } from '../../api-client/client';
 import { Users, Plus, X, Save, Trash2 } from 'lucide-react';
 
 export default function AdminUsers() {
@@ -59,7 +59,7 @@ export default function AdminUsers() {
   const roleNames: Record<string, string> = {
     student: '学生',
     teacher: '教师',
-    admin: '管理员',
+    admin: '管理�?,
   };
 
   const roleColors: Record<string, string> = {
@@ -92,11 +92,11 @@ export default function AdminUsers() {
             <thead>
               <tr className="text-left text-xs text-slate-500 border-b border-slate-100">
                 <th className="pb-3 font-medium">ID</th>
-                <th className="pb-3 font-medium">用户名</th>
+                <th className="pb-3 font-medium">用户�?/th>
                 <th className="pb-3 font-medium">姓名</th>
                 <th className="pb-3 font-medium">角色</th>
-                <th className="pb-3 font-medium">手机号</th>
-                <th className="pb-3 font-medium">状态</th>
+                <th className="pb-3 font-medium">手机�?/th>
+                <th className="pb-3 font-medium">状�?/th>
                 <th className="pb-3 font-medium">操作</th>
               </tr>
             </thead>
@@ -147,7 +147,7 @@ export default function AdminUsers() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">用户名</label>
+                  <label className="block text-sm font-medium text-slate-700 mb-1">用户�?/label>
                   <input
                     type="text"
                     value={formData.username}
@@ -188,14 +188,14 @@ export default function AdminUsers() {
                   >
                     <option value="student">学生</option>
                     <option value="teacher">教师</option>
-                    <option value="admin">管理员</option>
+                    <option value="admin">管理�?/option>
                   </select>
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">手机号</label>
+                  <label className="block text-sm font-medium text-slate-700 mb-1">手机�?/label>
                   <input
                     type="text"
                     value={formData.phone}
@@ -220,7 +220,7 @@ export default function AdminUsers() {
                 className="w-full btn-primary py-3 flex items-center justify-center gap-2 disabled:opacity-50"
               >
                 <Save size={18} />
-                {saving ? '保存中...' : '保存'}
+                {saving ? '保存�?..' : '保存'}
               </button>
             </form>
           </div>

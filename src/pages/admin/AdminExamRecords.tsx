@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { examApi } from '../../api/client';
+import { examApi } from '../../api-client/client';
 import {
   Search, Eye, FileText, BarChart3, Users, TrendingUp, Award,
   Calendar, Clock, Filter, RotateCcw, X, ChevronLeft, Download
@@ -164,21 +164,21 @@ export default function AdminExamRecords() {
         <div className="glass-card rounded-3xl p-6 text-center">
           <TrendingUp className="mx-auto text-emerald-500 mb-2" size={28} />
           <p className="text-3xl font-bold text-slate-800">{stats.avgScore}%</p>
-          <p className="text-xs text-slate-500 mt-1">平均正确率</p>
+          <p className="text-xs text-slate-500 mt-1">平均正确�?/p>
         </div>
         <div className="glass-card rounded-3xl p-6 text-center">
           <Award className="mx-auto text-amber-500 mb-2" size={28} />
           <p className="text-3xl font-bold text-slate-800">{stats.excellentRate}%</p>
-          <p className="text-xs text-slate-500 mt-1">优良率(≥80%)</p>
+          <p className="text-xs text-slate-500 mt-1">优良�?�?0%)</p>
         </div>
         <div className="glass-card rounded-3xl p-6 text-center">
           <BarChart3 className="mx-auto text-purple-500 mb-2" size={28} />
           <p className="text-3xl font-bold text-slate-800">{stats.passRate}%</p>
-          <p className="text-xs text-slate-500 mt-1">合格率(≥60%)</p>
+          <p className="text-xs text-slate-500 mt-1">合格�?�?0%)</p>
         </div>
       </div>
 
-      {/* 筛选 */}
+      {/* 筛�?*/}
       <div className="glass-card rounded-3xl p-4">
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="relative flex-1">
@@ -188,7 +188,7 @@ export default function AdminExamRecords() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="input-field pl-11 w-full"
-              placeholder="搜索试卷名称或学生姓名..."
+              placeholder="搜索试卷名称或学生姓�?.."
             />
           </div>
           <div className="flex items-center gap-2">
@@ -209,10 +209,10 @@ export default function AdminExamRecords() {
               className="input-field"
             >
               <option value="">全部等级</option>
-              <option value="A">A级</option>
-              <option value="B">B级</option>
-              <option value="C">C级</option>
-              <option value="D">D级</option>
+              <option value="A">A�?/option>
+              <option value="B">B�?/option>
+              <option value="C">C�?/option>
+              <option value="D">D�?/option>
             </select>
           </div>
         </div>
@@ -279,8 +279,7 @@ export default function AdminExamRecords() {
                       <td className="py-3 text-sm text-slate-600">
                         <span className="flex items-center gap-1">
                           <Clock size={12} />
-                          {Math.floor(record.duration / 60)}分{record.duration % 60}秒
-                        </span>
+                          {Math.floor(record.duration / 60)}分{record.duration % 60}�?                        </span>
                       </td>
                       <td className="py-3 text-sm text-slate-500">
                         <span className="flex items-center gap-1">

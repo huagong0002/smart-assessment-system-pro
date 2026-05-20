@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { noticeApi } from '../../api/client';
+import { noticeApi } from '../../api-client/client';
 import PageHeader from '../../components/PageHeader';
 import StatCards from '../../components/StatCards';
 import { useTheme } from '../../components/ThemeProvider';
@@ -85,7 +85,7 @@ export default function AdminNotices() {
   };
 
   const handleDeleteTemplate = async (id: number) => {
-    if (!confirm('确定要删除这个模板吗？')) return;
+    if (!confirm('确定要删除这个模板吗�?)) return;
     try {
       await noticeApi.deleteTemplate(id);
       loadData();
@@ -146,7 +146,7 @@ export default function AdminNotices() {
         <div className={`flex border-b ${isDark ? 'border-slate-700' : 'border-slate-200'}`}>
           {[
             { key: 'templates', label: '模板配置' },
-            { key: 'records', label: '发送记录' },
+            { key: 'records', label: '发送记�? },
             { key: 'stats', label: '通知统计' },
           ].map((tab) => (
             <button
@@ -198,10 +198,10 @@ export default function AdminNotices() {
               <table className="w-full">
                 <thead>
                   <tr className={`border-b ${isDark ? 'border-slate-700' : 'border-slate-200'}`}>
-                    <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">接收人</th>
+                    <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">接收�?/th>
                     <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">内容</th>
-                    <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">状态</th>
-                    <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">发送时间</th>
+                    <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">状�?/th>
+                    <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">发送时�?/th>
                   </tr>
                 </thead>
                 <tbody>
@@ -228,7 +228,7 @@ export default function AdminNotices() {
                 <div className={`rounded-2xl p-4 ${isDark ? 'bg-slate-700' : 'bg-slate-50'}`}>
                   <div className="flex items-center gap-2 mb-2">
                     <Mail size={16} className="text-blue-500" />
-                    <span className="text-sm text-slate-500">总通知数</span>
+                    <span className="text-sm text-slate-500">总通知�?/span>
                   </div>
                   <p className="text-2xl font-bold text-slate-800">{notices.length}</p>
                 </div>
@@ -249,7 +249,7 @@ export default function AdminNotices() {
                 <div className={`rounded-2xl p-4 ${isDark ? 'bg-slate-700' : 'bg-slate-50'}`}>
                   <div className="flex items-center gap-2 mb-2">
                     <TrendingUp size={16} className="text-purple-500" />
-                    <span className="text-sm text-slate-500">已读率</span>
+                    <span className="text-sm text-slate-500">已读�?/span>
                   </div>
                   <p className="text-2xl font-bold text-slate-800">
                     {notices.length > 0 ? Math.round((notices.filter(n => n.is_read).length / notices.length) * 100) : 0}%
@@ -261,7 +261,7 @@ export default function AdminNotices() {
                 <div className={`rounded-2xl p-6 ${isDark ? 'bg-slate-700' : 'bg-white border border-slate-200'}`}>
                   <div className="flex items-center gap-2 mb-4">
                     <BarChart3 size={18} className="text-blue-500" />
-                    <h3 className="text-sm font-bold text-slate-800">通知发送趋势（近7天）</h3>
+                    <h3 className="text-sm font-bold text-slate-800">通知发送趋势（�?天）</h3>
                   </div>
                   {(() => {
                     const dateMap: Record<string, number> = {};
@@ -276,7 +276,7 @@ export default function AdminNotices() {
                           data={{
                             labels: sortedDates,
                             datasets: [{
-                              label: '发送数量',
+                              label: '发送数�?,
                               data: sortedDates.map(d => dateMap[d] || 0),
                               backgroundColor: '#3b82f6',
                               borderRadius: 6,
@@ -368,7 +368,7 @@ export default function AdminNotices() {
                   value={templateForm.name}
                   onChange={(e) => setTemplateForm({ ...templateForm, name: e.target.value })}
                   className="input-field"
-                  placeholder="请输入模板名称"
+                  placeholder="请输入模板名�?
                   required
                 />
               </div>
@@ -391,7 +391,7 @@ export default function AdminNotices() {
                   value={templateForm.content}
                   onChange={(e) => setTemplateForm({ ...templateForm, content: e.target.value })}
                   className="input-field min-h-[120px]"
-                  placeholder="请输入模板内容，可用变量如 {{student_name}}"
+                  placeholder="请输入模板内容，可用变量�?{{student_name}}"
                   required
                 />
               </div>
@@ -408,7 +408,7 @@ export default function AdminNotices() {
               <div className="flex gap-3 pt-2">
                 <button type="button" onClick={() => setTemplateModalOpen(false)} className="flex-1 btn-secondary py-2.5">取消</button>
                 <button type="submit" disabled={saving} className="flex-1 btn-primary py-2.5 disabled:opacity-50">
-                  {saving ? '保存中...' : '保存'}
+                  {saving ? '保存�?..' : '保存'}
                 </button>
               </div>
             </form>

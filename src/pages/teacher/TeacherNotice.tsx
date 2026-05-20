@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
-import { noticeApi, studentApi } from '../../api/client';
+import { noticeApi, studentApi } from '../../api-client/client';
 import { Bell, Send, FileText, Check, Users, Eye } from 'lucide-react';
 import AdmissionPoster from '../../components/AdmissionPoster';
 import { renderPoster, posterTemplates, type PosterData } from '../../utils/posterCanvas';
@@ -236,7 +236,7 @@ export default function TeacherNotice() {
               value={customContent}
               onChange={(e) => setCustomContent(e.target.value)}
               className="input-field min-h-[200px] resize-none"
-              placeholder="留空则使用模板默认内容"
+              placeholder="留空则使用模板默认内�?
             />
             <p className="text-xs text-slate-500 mt-2">
               可用变量：{'{studentName}'}, {'{courseType}'}, {'{level}'}, {'{score}'}
@@ -272,7 +272,7 @@ export default function TeacherNotice() {
                 onClick={toggleAll}
                 className="text-sm text-blue-600 hover:text-blue-700"
               >
-                {selectedStudents.length === students.length ? '取消全选' : '全选'}
+                {selectedStudents.length === students.length ? '取消全�? : '全�?}
               </button>
             </div>
             <div className="space-y-2 max-h-64 overflow-y-auto scrollbar-thin">
@@ -316,8 +316,7 @@ export default function TeacherNotice() {
           {sent && (
             <div className="flex items-center gap-2 p-3 bg-emerald-50 border border-emerald-200 rounded-2xl text-sm text-emerald-600">
               <Check size={16} />
-              通知发送成功
-            </div>
+              通知发送成�?            </div>
           )}
 
           <button
@@ -326,7 +325,7 @@ export default function TeacherNotice() {
             className="w-full btn-primary py-3.5 flex items-center justify-center gap-2 disabled:opacity-50"
           >
             <Send size={18} />
-            {sending ? '发送中...' : `发送通知 (${selectedStudents.length}人)`}
+            {sending ? '发送中...' : `发送通知 (${selectedStudents.length}�?`}
           </button>
         </div>
       </div>

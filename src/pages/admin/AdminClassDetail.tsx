@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { classApi, examApi, studentApi } from '../../api/client';
+import { classApi, examApi, studentApi } from '../../api-client/client';
 import { useTheme } from '../../components/ThemeProvider';
 import PageHeader from '../../components/PageHeader';
 import StatCards from '../../components/StatCards';
@@ -91,8 +91,7 @@ export default function AdminClassDetail() {
   const loadAllStudents = async () => {
     try {
       const data = await studentApi.list();
-      // 过滤掉已在班级中的学生
-      const existingIds = new Set(students.map((s) => s.id));
+      // 过滤掉已在班级中的学�?      const existingIds = new Set(students.map((s) => s.id));
       setAllStudents(data.filter((s: any) => !existingIds.has(s.id)));
     } catch (error) {
       console.error(error);
@@ -112,7 +111,7 @@ export default function AdminClassDetail() {
   };
 
   const handleRemoveStudent = async (studentId: number) => {
-    if (!confirm('确定将该学生从班级中移除？')) return;
+    if (!confirm('确定将该学生从班级中移除�?)) return;
     try {
       await classApi.removeStudent(Number(id), studentId);
       loadClassDetail();
@@ -125,8 +124,8 @@ export default function AdminClassDetail() {
   const statCards = [
     { title: '班级学生', value: overview.total_students || students.length, icon: Users, color: 'bg-blue-500' },
     { title: '测评次数', value: overview.total_records || records.length, icon: BookOpen, color: 'bg-green-500' },
-    { title: '平均分', value: overview.avg_score ? Math.round(overview.avg_score) + '%' : '-', icon: BarChart3, color: 'bg-purple-500' },
-    { title: '优良率', value: overview.total_records > 0 ? Math.round(((overview.a_count || 0) + (overview.b_count || 0)) / overview.total_records * 100) + '%' : '-', icon: Award, color: 'bg-amber-500' },
+    { title: '平均�?, value: overview.avg_score ? Math.round(overview.avg_score) + '%' : '-', icon: BarChart3, color: 'bg-purple-500' },
+    { title: '优良�?, value: overview.total_records > 0 ? Math.round(((overview.a_count || 0) + (overview.b_count || 0)) / overview.total_records * 100) + '%' : '-', icon: Award, color: 'bg-amber-500' },
   ];
 
   if (loading) {
@@ -141,7 +140,7 @@ export default function AdminClassDetail() {
     <div className="space-y-6">
       <PageHeader
         title={cls?.name || '班级详情'}
-        description={`${cls?.grade || '-'}年级 · 教师：${cls?.teacher_name || '未分配'}`}
+        description={`${cls?.grade || '-'}年级 · 教师�?{cls?.teacher_name || '未分�?}`}
       >
         <button onClick={() => navigate('/admin/classes')} className="btn-secondary flex items-center gap-2">
           <ArrowLeft size={16} />
@@ -151,7 +150,7 @@ export default function AdminClassDetail() {
 
       <StatCards cards={statCards} />
 
-      {/* 标签页 */}
+      {/* 标签�?*/}
       <div className={`flex gap-1 p-1 rounded-xl ${isDark ? 'bg-slate-800' : 'bg-slate-100'}`}>
         {[
           { key: 'students', label: '学生列表', icon: Users },
@@ -191,7 +190,7 @@ export default function AdminClassDetail() {
               <thead>
                 <tr className={`border-b ${isDark ? 'border-slate-700' : 'border-slate-200'}`}>
                   <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">姓名</th>
-                  <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">用户名</th>
+                  <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">用户�?/th>
                   <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">性别</th>
                   <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">年级</th>
                   <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">学校</th>
@@ -203,7 +202,7 @@ export default function AdminClassDetail() {
                   <tr key={s.id} className={`border-b ${isDark ? 'border-slate-700 hover:bg-slate-700/50' : 'border-slate-100 hover:bg-slate-50'} transition-colors`}>
                     <td className="px-4 py-3 text-sm font-medium">{s.name}</td>
                     <td className="px-4 py-3 text-sm">{s.username}</td>
-                    <td className="px-4 py-3 text-sm">{s.gender === 'male' ? '男' : s.gender === 'female' ? '女' : '-'}</td>
+                    <td className="px-4 py-3 text-sm">{s.gender === 'male' ? '�? : s.gender === 'female' ? '�? : '-'}</td>
                     <td className="px-4 py-3 text-sm">{s.grade ? `${s.grade}年级` : '-'}</td>
                     <td className="px-4 py-3 text-sm">{s.school || '-'}</td>
                     <td className="px-4 py-3">
@@ -216,8 +215,7 @@ export default function AdminClassDetail() {
                 {students.length === 0 && (
                   <tr>
                     <td colSpan={6} className="px-4 py-8 text-center text-slate-400 text-sm">
-                      暂无学生，点击上方按钮添加
-                    </td>
+                      暂无学生，点击上方按钮添�?                    </td>
                   </tr>
                 )}
               </tbody>
@@ -293,7 +291,7 @@ export default function AdminClassDetail() {
                   ].map((item) => (
                     <div key={item.level} className={`p-4 rounded-xl text-center ${item.color}`}>
                       <p className="text-2xl font-bold">{item.count}</p>
-                      <p className="text-xs font-medium">{item.level}级</p>
+                      <p className="text-xs font-medium">{item.level}�?/p>
                     </div>
                   ))}
                 </div>
@@ -311,8 +309,8 @@ export default function AdminClassDetail() {
                         <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">排名</th>
                         <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">姓名</th>
                         <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">测评次数</th>
-                        <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">平均分</th>
-                        <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">最近测评</th>
+                        <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">平均�?/th>
+                        <th className="text-left px-4 py-3 text-sm font-medium text-slate-500">最近测�?/th>
                       </tr>
                     </thead>
                     <tbody>
@@ -343,7 +341,7 @@ export default function AdminClassDetail() {
       {showAddStudent && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
           <div className={`rounded-2xl p-6 w-full max-w-md ${isDark ? 'bg-slate-800' : 'bg-white'}`}>
-            <h2 className={`text-lg font-bold mb-4 ${isDark ? 'text-white' : 'text-slate-800'}`}>添加学生到班级</h2>
+            <h2 className={`text-lg font-bold mb-4 ${isDark ? 'text-white' : 'text-slate-800'}`}>添加学生到班�?/h2>
             <div className="space-y-4">
               <div>
                 <label className={`block text-sm font-medium mb-1 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>选择学生</label>

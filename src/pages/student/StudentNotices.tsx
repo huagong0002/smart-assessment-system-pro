@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useAuthStore } from '../../stores/authStore';
-import { noticeApi, studentApi } from '../../api/client';
+import { noticeApi, studentApi } from '../../api-client/client';
 import { Bell, Mail, Calendar, Eye, Award } from 'lucide-react';
 import AdmissionPoster from '../../components/AdmissionPoster';
 import { posterTemplates, type PosterData } from '../../utils/posterCanvas';
@@ -62,9 +62,9 @@ export default function StudentNotices() {
 
     const content = notice.content || '';
     const nameMatch = content.match(/恭喜\s*(.+?)\s*同学/);
-    const courseMatch = content.match(/录取至\s*(.+?)(?:级班|班)/);
-    const levelMatch = content.match(/([ABCD])级/);
-    const scoreMatch = content.match(/(\d+)分/);
+    const courseMatch = content.match(/录取至\s*(.+?)(?:级班|�?/);
+    const levelMatch = content.match(/([ABCD])�?);
+    const scoreMatch = content.match(/(\d+)�?);
 
     return {
       studentName: nameMatch ? nameMatch[1] : '同学',
@@ -107,7 +107,7 @@ export default function StudentNotices() {
         <h1 className="text-2xl font-bold text-slate-800">通知中心</h1>
         {notices.length > 0 && (
           <span className="text-sm text-slate-500">
-            共 {notices.length} 条通知
+            �?{notices.length} 条通知
             {notices.filter((n) => !n.is_read).length > 0 && (
               <span className="ml-2 px-2 py-0.5 bg-red-100 text-red-600 text-xs font-medium rounded-full">
                 {notices.filter((n) => !n.is_read).length} 未读
@@ -150,8 +150,7 @@ export default function StudentNotices() {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
                       <span className={`text-sm font-bold ${isUnread ? 'text-slate-800' : 'text-slate-600'}`}>
-                        录取通知书
-                      </span>
+                        录取通知�?                      </span>
                       {isUnread && (
                         <span className="w-2 h-2 bg-red-500 rounded-full" />
                       )}

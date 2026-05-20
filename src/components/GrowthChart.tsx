@@ -126,25 +126,25 @@ export default function GrowthChart({ records }: GrowthChartProps) {
         </div>
         <div>
           <h2 className="text-lg font-bold text-slate-800">成长记录</h2>
-          <p className="text-sm text-slate-500">近{recentRecords.length}次测评趋势</p>
+          <p className="text-sm text-slate-500">近{recentRecords.length}次测评趋�?/p>
         </div>
       </div>
 
       <div className="grid grid-cols-3 gap-3 mb-4">
         <div className="text-center p-3 bg-blue-50 rounded-2xl">
           <p className="text-xl font-bold text-blue-600">{records.length}</p>
-          <p className="text-xs text-slate-500 mt-1">总测评次数</p>
+          <p className="text-xs text-slate-500 mt-1">总测评次�?/p>
         </div>
         <div className="text-center p-3 bg-emerald-50 rounded-2xl">
           <p className="text-xl font-bold text-emerald-600">{avgScore}</p>
-          <p className="text-xs text-slate-500 mt-1">平均分</p>
+          <p className="text-xs text-slate-500 mt-1">平均�?/p>
         </div>
         <div className="text-center p-3 bg-amber-50 rounded-2xl">
           <div className="flex items-center justify-center gap-1">
             <Award size={16} className="text-amber-600" />
             <p className="text-xl font-bold text-amber-600">{bestLevel}</p>
           </div>
-          <p className="text-xs text-slate-500 mt-1">最高等级</p>
+          <p className="text-xs text-slate-500 mt-1">最高等�?/p>
         </div>
       </div>
 

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { examApi } from '../../api/client';
+import { examApi } from '../../api-client/client';
 import { Clock, ChevronLeft, ChevronRight, Send, AlertCircle, EyeOff } from 'lucide-react';
 
 export default function StudentExamTaking() {
@@ -196,7 +196,7 @@ export default function StudentExamTaking() {
         <div className="flex items-center justify-between mb-4 lg:mb-6">
           <div className="min-w-0">
             <h1 className="text-base lg:text-lg font-bold text-slate-800 truncate">{exam.name}</h1>
-            <p className="text-xs lg:text-sm text-slate-500">第 {currentQuestion + 1} / {exam.questions.length} 题</p>
+            <p className="text-xs lg:text-sm text-slate-500">�?{currentQuestion + 1} / {exam.questions.length} �?/p>
           </div>
           <div className={`flex items-center gap-1 lg:gap-2 px-3 lg:px-4 py-2 rounded-xl shrink-0 ${timeLeft < 300 ? 'bg-red-50 text-red-600' : 'bg-blue-50 text-blue-600'}`}>
             <Clock size={16} />
@@ -261,7 +261,7 @@ export default function StudentExamTaking() {
           >
             <ChevronLeft size={16} className="lg:hidden" />
             <ChevronLeft size={18} className="hidden lg:block" />
-            <span className="hidden lg:inline">上一题</span>
+            <span className="hidden lg:inline">上一�?/span>
           </button>
 
           <div className="flex-1 overflow-x-auto scrollbar-thin">
@@ -289,7 +289,7 @@ export default function StudentExamTaking() {
               onClick={() => setCurrentQuestion(currentQuestion + 1)}
               className="shrink-0 btn-primary flex items-center gap-1 lg:gap-2 px-3 lg:px-6"
             >
-              <span className="hidden lg:inline">下一题</span>
+              <span className="hidden lg:inline">下一�?/span>
               <ChevronRight size={16} className="lg:hidden" />
               <ChevronRight size={18} className="hidden lg:block" />
             </button>
@@ -326,7 +326,7 @@ export default function StudentExamTaking() {
             </div>
             <h3 className="text-lg font-bold text-slate-800 text-center mb-2">确认提交</h3>
             <p className="text-sm text-slate-500 text-center mb-2">
-              已回答 {Object.keys(answers).length} / {exam.questions.length} 道题
+              已回�?{Object.keys(answers).length} / {exam.questions.length} 道题
             </p>
             {Object.keys(answers).length < exam.questions.length && (
               <p className="text-xs text-amber-600 text-center mb-4">
@@ -338,7 +338,7 @@ export default function StudentExamTaking() {
                 继续答题
               </button>
               <button onClick={handleSubmit} disabled={submitted} className="flex-1 btn-primary py-2.5 disabled:opacity-50">
-                {submitted ? '提交中...' : '确认提交'}
+                {submitted ? '提交�?..' : '确认提交'}
               </button>
             </div>
           </div>

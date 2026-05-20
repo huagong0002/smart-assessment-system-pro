@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { studentApi } from '../../api/client';
+import { studentApi } from '../../api-client/client';
 import {
   Users, Plus, Upload, X, Save, Trash2, Search, Edit3,
   FileSpreadsheet, ChevronLeft, ChevronRight, GraduationCap
@@ -159,7 +159,7 @@ export default function AdminStudents() {
   };
 
   const handleDelete = async (id: number) => {
-    if (!confirm('确定要删除该学生吗？此操作不可恢复。')) return;
+    if (!confirm('确定要删除该学生吗？此操作不可恢复�?)) return;
     try {
       await studentApi.delete(id);
       loadStudents();
@@ -294,8 +294,8 @@ export default function AdminStudents() {
               className="input-field"
             >
               <option value="">请选择</option>
-              <option value="male">男</option>
-              <option value="female">女</option>
+              <option value="male">�?/option>
+              <option value="female">�?/option>
             </select>
           </div>
         )}
@@ -320,8 +320,8 @@ export default function AdminStudents() {
               className="input-field"
             >
               <option value="">请选择</option>
-              <option value="male">男</option>
-              <option value="female">女</option>
+              <option value="male">�?/option>
+              <option value="female">�?/option>
             </select>
           </div>
         </div>
@@ -360,7 +360,7 @@ export default function AdminStudents() {
           value={formData.math_score}
           onChange={(e) => setFormData({ ...formData, math_score: e.target.value })}
           className="input-field"
-          placeholder="如：优秀/90分"
+          placeholder="如：优秀/90�?
         />
       </div>
 
@@ -372,7 +372,7 @@ export default function AdminStudents() {
             value={formData.ai_base}
             onChange={(e) => setFormData({ ...formData, ai_base: e.target.value })}
             className="input-field"
-            placeholder="如：无/有基础"
+            placeholder="如：�?有基础"
           />
         </div>
         <div>
@@ -382,7 +382,7 @@ export default function AdminStudents() {
             value={formData.programming_base}
             onChange={(e) => setFormData({ ...formData, programming_base: e.target.value })}
             className="input-field"
-            placeholder="如：无/Scratch"
+            placeholder="如：�?Scratch"
           />
         </div>
       </div>
@@ -393,7 +393,7 @@ export default function AdminStudents() {
           value={formData.awards}
           onChange={(e) => setFormData({ ...formData, awards: e.target.value })}
           className="input-field min-h-[60px] resize-none"
-          placeholder="请描述相关获奖经历"
+          placeholder="请描述相关获奖经�?
         />
       </div>
 
@@ -409,7 +409,7 @@ export default function AdminStudents() {
         className="w-full btn-primary py-3 flex items-center justify-center gap-2 disabled:opacity-50"
       >
         <Save size={18} />
-        {saving ? '保存中...' : isEdit ? '保存修改' : '添加学生'}
+        {saving ? '保存�?..' : isEdit ? '保存修改' : '添加学生'}
       </button>
     </form>
   );
@@ -451,7 +451,7 @@ export default function AdminStudents() {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="input-field pl-11 w-full max-w-md"
-          placeholder="搜索姓名、学校或用户名..."
+          placeholder="搜索姓名、学校或用户�?.."
         />
       </div>
 
@@ -468,8 +468,8 @@ export default function AdminStudents() {
                 <th className="pb-3 font-medium">数学成绩</th>
                 <th className="pb-3 font-medium">AI基础</th>
                 <th className="pb-3 font-medium">编程基础</th>
-                <th className="pb-3 font-medium">兴趣度</th>
-                <th className="pb-3 font-medium">状态</th>
+                <th className="pb-3 font-medium">兴趣�?/th>
+                <th className="pb-3 font-medium">状�?/th>
                 <th className="pb-3 font-medium">操作</th>
               </tr>
             </thead>
@@ -487,7 +487,7 @@ export default function AdminStudents() {
                     <td className="py-3 text-sm text-slate-600">{student.id}</td>
                     <td className="py-3 text-sm font-medium text-slate-800">{student.name}</td>
                     <td className="py-3 text-sm text-slate-600">
-                      {student.gender === 'male' ? '男' : student.gender === 'female' ? '女' : '-'}
+                      {student.gender === 'male' ? '�? : student.gender === 'female' ? '�? : '-'}
                     </td>
                     <td className="py-3 text-sm text-slate-600">{student.grade ? `${student.grade}年级` : '-'}</td>
                     <td className="py-3 text-sm text-slate-600">{student.school || '-'}</td>
@@ -532,8 +532,7 @@ export default function AdminStudents() {
         {totalPages > 1 && (
           <div className="flex items-center justify-between mt-4 pt-4 border-t border-slate-100">
             <p className="text-sm text-slate-500">
-              共 {filteredStudents.length} 条，第 {currentPage}/{totalPages} 页
-            </p>
+              �?{filteredStudents.length} 条，�?{currentPage}/{totalPages} �?            </p>
             <div className="flex gap-2">
               <button
                 onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
@@ -612,7 +611,7 @@ export default function AdminStudents() {
                   disabled={saving}
                   className="mt-3 w-full btn-primary py-2 text-sm disabled:opacity-50"
                 >
-                  {saving ? '导入中...' : `导入 ${csvFile.name}`}
+                  {saving ? '导入�?..' : `导入 ${csvFile.name}`}
                 </button>
               )}
             </div>
@@ -622,13 +621,13 @@ export default function AdminStudents() {
                 <div className="w-full border-t border-slate-200"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-slate-500">或</span>
+                <span className="px-2 bg-white text-slate-500">�?/span>
               </div>
             </div>
 
             <div className="mb-4">
               <p className="text-sm text-slate-600 mb-2">
-                每行输入一个学生，格式：姓名,年级,学校（可选）
+                每行输入一个学生，格式：姓�?年级,学校（可选）
               </p>
               <textarea
                 value={batchData}
@@ -650,7 +649,7 @@ export default function AdminStudents() {
               className="w-full btn-primary py-3 flex items-center justify-center gap-2 disabled:opacity-50"
             >
               <Upload size={18} />
-              {saving ? '导入中...' : '开始导入'}
+              {saving ? '导入�?..' : '开始导�?}
             </button>
           </div>
         </div>

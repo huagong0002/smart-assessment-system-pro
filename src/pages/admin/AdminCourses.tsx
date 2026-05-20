@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { courseApi } from '../../api/client';
+import { courseApi } from '../../api-client/client';
 import {
   Plus, X, Save, Trash2, Search, Eye, Edit3, Calendar,
   MapPin, Users, Clock, ChevronDown, ChevronUp, GraduationCap,
@@ -20,15 +20,15 @@ const statusLabels: Record<string, { text: string; color: string; bg: string }> 
 };
 
 const scheduleStatusLabels: Record<string, { text: string; color: string; bg: string }> = {
-  upcoming: { text: '即将开班', color: 'text-blue-600', bg: 'bg-blue-100' },
-  ongoing: { text: '进行中', color: 'text-emerald-600', bg: 'bg-emerald-100' },
-  completed: { text: '已结束', color: 'text-slate-600', bg: 'bg-slate-100' },
-  full: { text: '已满员', color: 'text-amber-600', bg: 'bg-amber-100' },
+  upcoming: { text: '即将开�?, color: 'text-blue-600', bg: 'bg-blue-100' },
+  ongoing: { text: '进行�?, color: 'text-emerald-600', bg: 'bg-emerald-100' },
+  completed: { text: '已结�?, color: 'text-slate-600', bg: 'bg-slate-100' },
+  full: { text: '已满�?, color: 'text-amber-600', bg: 'bg-amber-100' },
 };
 
 const classModeLabels: Record<string, { text: string; icon: any }> = {
-  online: { text: '线上课', icon: Monitor },
-  offline: { text: '线下课', icon: MapPin },
+  online: { text: '线上�?, icon: Monitor },
+  offline: { text: '线下�?, icon: MapPin },
 };
 
 interface Course {
@@ -226,7 +226,7 @@ export default function AdminCourses() {
   };
 
   const handleDeleteCourse = async (id: number) => {
-    if (!confirm('确定要删除该课程吗？关联的开班计划也会被删除。')) return;
+    if (!confirm('确定要删除该课程吗？关联的开班计划也会被删除�?)) return;
     try {
       await courseApi.delete(id);
       loadCourses();
@@ -237,7 +237,7 @@ export default function AdminCourses() {
   };
 
   const handleDeleteSchedule = async (scheduleId: number, courseId: number) => {
-    if (!confirm('确定要删除该开班计划吗？')) return;
+    if (!confirm('确定要删除该开班计划吗�?)) return;
     try {
       await courseApi.deleteSchedule(scheduleId);
       loadSchedules(courseId);
@@ -258,7 +258,7 @@ export default function AdminCourses() {
   return (
     <div className="space-y-6 fade-in">
       <div className="flex items-center justify-between flex-wrap gap-4">
-        <h1 className="text-2xl font-bold text-slate-800">课程开班管理</h1>
+        <h1 className="text-2xl font-bold text-slate-800">课程开班管�?/h1>
         <button onClick={() => openCourseModal()} className="btn-primary flex items-center gap-2">
           <Plus size={18} />
           添加课程
@@ -303,7 +303,7 @@ export default function AdminCourses() {
             onChange={(e) => setFilter({ ...filter, status: e.target.value })}
             className="input-field w-auto text-sm"
           >
-            <option value="">全部状态</option>
+            <option value="">全部状�?/option>
             <option value="active">启用</option>
             <option value="disabled">停用</option>
           </select>
@@ -347,8 +347,7 @@ export default function AdminCourses() {
                     </span>
                     <span className="flex items-center gap-1">
                       <Users size={14} className="text-slate-400" />
-                      {course.schedules?.length || 0}个开班计划
-                    </span>
+                      {course.schedules?.length || 0}个开班计�?                    </span>
                     {course.start_date && (
                       <span className="flex items-center gap-1">
                         <Calendar size={14} className="text-slate-400" />
@@ -379,7 +378,7 @@ export default function AdminCourses() {
                   <button
                     onClick={() => toggleExpand(course.id)}
                     className="p-2 text-slate-400 hover:text-blue-500 hover:bg-blue-50 rounded-lg transition-colors"
-                    title="查看开班计划"
+                    title="查看开班计�?
                   >
                     {expandedCourse === course.id ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                   </button>
@@ -404,14 +403,13 @@ export default function AdminCourses() {
             {expandedCourse === course.id && (
               <div className="border-t border-slate-100 bg-slate-50/50 p-6">
                 <div className="flex items-center justify-between mb-4">
-                  <h4 className="text-sm font-bold text-slate-700">开班计划</h4>
+                  <h4 className="text-sm font-bold text-slate-700">开班计�?/h4>
                   <button
                     onClick={() => openScheduleModal(course.id)}
                     className="text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1"
                   >
                     <Plus size={14} />
-                    添加开班计划
-                  </button>
+                    添加开班计�?                  </button>
                 </div>
                 {course.schedules && course.schedules.length > 0 ? (
                   <div className="space-y-3">
@@ -441,8 +439,7 @@ export default function AdminCourses() {
                               </span>
                               <span className="flex items-center gap-1">
                                 <MapPin size={12} className="text-slate-400" />
-                                {schedule.location || '待定'} · {schedule.enrolled || 0}/{schedule.capacity || 20}人
-                              </span>
+                                {schedule.location || '待定'} · {schedule.enrolled || 0}/{schedule.capacity || 20}�?                              </span>
                             </div>
                           </div>
                           <div className="flex items-center gap-1 shrink-0">
@@ -480,7 +477,7 @@ export default function AdminCourses() {
           <div className="glass-card rounded-3xl p-12 text-center">
             <BookOpen size={48} className="mx-auto text-slate-300 mb-4" />
             <p className="text-slate-500 mb-2">暂无课程</p>
-            <p className="text-sm text-slate-400">点击右上角添加课程按钮创建第一个课程</p>
+            <p className="text-sm text-slate-400">点击右上角添加课程按钮创建第一个课�?/p>
           </div>
         )}
       </div>
@@ -505,7 +502,7 @@ export default function AdminCourses() {
                   onChange={(e) => setCourseForm({ ...courseForm, name: e.target.value })}
                   className="input-field"
                   required
-                  placeholder="如：Python编程入门班"
+                  placeholder="如：Python编程入门�?
                 />
               </div>
 
@@ -545,12 +542,12 @@ export default function AdminCourses() {
                     onChange={(e) => setCourseForm({ ...courseForm, class_mode: e.target.value })}
                     className="input-field"
                   >
-                    <option value="offline">线下课</option>
-                    <option value="online">线上课</option>
+                    <option value="offline">线下�?/option>
+                    <option value="online">线上�?/option>
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">开课日期</label>
+                  <label className="block text-sm font-medium text-slate-700 mb-1">开课日�?/label>
                   <input
                     type="date"
                     value={courseForm.start_date}
@@ -577,7 +574,7 @@ export default function AdminCourses() {
                   value={courseForm.description}
                   onChange={(e) => setCourseForm({ ...courseForm, description: e.target.value })}
                   className="input-field min-h-[80px] resize-none"
-                  placeholder="课程的简要介绍"
+                  placeholder="课程的简要介�?
                 />
               </div>
 
@@ -587,7 +584,7 @@ export default function AdminCourses() {
                   value={courseForm.syllabus}
                   onChange={(e) => setCourseForm({ ...courseForm, syllabus: e.target.value })}
                   className="input-field min-h-[100px] resize-none"
-                  placeholder="每行一个章节，如：&#10;第一章：AI基础概念&#10;第二章：提示词工程入门"
+                  placeholder="每行一个章节，如：&#10;第一章：AI基础概念&#10;第二章：提示词工程入�?
                 />
                 <p className="text-xs text-slate-400 mt-1">每行一个章节，用于测评报告展示</p>
               </div>
@@ -627,7 +624,7 @@ export default function AdminCourses() {
 
               <div className="grid grid-cols-3 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">总课时</label>
+                  <label className="block text-sm font-medium text-slate-700 mb-1">总课�?/label>
                   <input
                     type="number"
                     value={courseForm.total_hours}
@@ -637,7 +634,7 @@ export default function AdminCourses() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">价格(元)</label>
+                  <label className="block text-sm font-medium text-slate-700 mb-1">价格(�?</label>
                   <input
                     type="number"
                     value={courseForm.price}
@@ -647,7 +644,7 @@ export default function AdminCourses() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">状态</label>
+                  <label className="block text-sm font-medium text-slate-700 mb-1">状�?/label>
                   <select
                     value={courseForm.status}
                     onChange={(e) => setCourseForm({ ...courseForm, status: e.target.value })}
@@ -665,7 +662,7 @@ export default function AdminCourses() {
                 className="w-full btn-primary py-3 flex items-center justify-center gap-2 disabled:opacity-50"
               >
                 <Save size={18} />
-                {saving ? '保存中...' : '保存'}
+                {saving ? '保存�?..' : '保存'}
               </button>
             </form>
           </div>
@@ -677,7 +674,7 @@ export default function AdminCourses() {
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-3xl p-6 w-full max-w-md max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-slate-800">{editingSchedule ? '编辑开班计划' : '添加开班计划'}</h2>
+              <h2 className="text-xl font-bold text-slate-800">{editingSchedule ? '编辑开班计�? : '添加开班计�?}</h2>
               <button onClick={() => setShowScheduleModal(false)} className="p-2 hover:bg-slate-100 rounded-xl">
                 <X size={20} />
               </button>
@@ -692,7 +689,7 @@ export default function AdminCourses() {
                   onChange={(e) => setScheduleForm({ ...scheduleForm, name: e.target.value })}
                   className="input-field"
                   required
-                  placeholder="如：2025春季AIGC入门班"
+                  placeholder="如：2025春季AIGC入门�?
                 />
               </div>
 
@@ -709,7 +706,7 @@ export default function AdminCourses() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">开始日期</label>
+                  <label className="block text-sm font-medium text-slate-700 mb-1">开始日�?/label>
                   <input
                     type="date"
                     value={scheduleForm.start_date}
@@ -735,7 +732,7 @@ export default function AdminCourses() {
                   value={scheduleForm.schedule_time}
                   onChange={(e) => setScheduleForm({ ...scheduleForm, schedule_time: e.target.value })}
                   className="input-field"
-                  placeholder="如：每周六 14:00-16:00"
+                  placeholder="如：每周�?14:00-16:00"
                 />
               </div>
 
@@ -762,7 +759,7 @@ export default function AdminCourses() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">已报名</label>
+                  <label className="block text-sm font-medium text-slate-700 mb-1">已报�?/label>
                   <input
                     type="number"
                     value={scheduleForm.enrolled}
@@ -772,16 +769,16 @@ export default function AdminCourses() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">状态</label>
+                  <label className="block text-sm font-medium text-slate-700 mb-1">状�?/label>
                   <select
                     value={scheduleForm.status}
                     onChange={(e) => setScheduleForm({ ...scheduleForm, status: e.target.value })}
                     className="input-field"
                   >
-                    <option value="upcoming">即将开班</option>
-                    <option value="ongoing">进行中</option>
-                    <option value="completed">已结束</option>
-                    <option value="full">已满员</option>
+                    <option value="upcoming">即将开�?/option>
+                    <option value="ongoing">进行�?/option>
+                    <option value="completed">已结�?/option>
+                    <option value="full">已满�?/option>
                   </select>
                 </div>
               </div>
@@ -792,7 +789,7 @@ export default function AdminCourses() {
                 className="w-full btn-primary py-3 flex items-center justify-center gap-2 disabled:opacity-50"
               >
                 <Save size={18} />
-                {saving ? '保存中...' : '保存'}
+                {saving ? '保存�?..' : '保存'}
               </button>
             </form>
           </div>

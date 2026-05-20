@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { examApi, classApi, dashboardApi } from '../../api/client';
+import { examApi, classApi, dashboardApi } from '../../api-client/client';
 import {
   ClipboardList, Search, Eye, BarChart3, Users, TrendingUp, Award,
   Calendar, Clock, Filter, GraduationCap, ChevronDown, ChevronUp
@@ -50,8 +50,7 @@ export default function TeacherExam() {
       setClasses(classesData);
       setTrends(trendsData);
 
-      // 获取所有测评记录
-      const allRecords: any[] = [];
+      // 获取所有测评记�?      const allRecords: any[] = [];
       for (const exam of examsData) {
         try {
           const examRecords = await examApi.records(exam.id);
@@ -124,7 +123,7 @@ export default function TeacherExam() {
               ? Math.round(records.reduce((s, r) => s + (r.score / r.total_score * 100), 0) / records.length)
               : 0}%
           </p>
-          <p className="text-xs text-slate-500 mt-1">平均正确率</p>
+          <p className="text-xs text-slate-500 mt-1">平均正确�?/p>
         </div>
         <div className="glass-card rounded-3xl p-6 text-center">
           <Award className="mx-auto text-purple-500 mb-2" size={28} />
@@ -133,12 +132,12 @@ export default function TeacherExam() {
               ? Math.round((records.filter((r) => r.level === 'A' || r.level === 'B').length / records.length) * 100)
               : 0}%
           </p>
-          <p className="text-xs text-slate-500 mt-1">优良率</p>
+          <p className="text-xs text-slate-500 mt-1">优良�?/p>
         </div>
         <div className="glass-card rounded-3xl p-6 text-center">
           <GraduationCap className="mx-auto text-rose-500 mb-2" size={28} />
           <p className="text-3xl font-bold text-slate-800">{classes.length}</p>
-          <p className="text-xs text-slate-500 mt-1">班级数</p>
+          <p className="text-xs text-slate-500 mt-1">班级�?/p>
         </div>
       </div>
 
@@ -153,15 +152,14 @@ export default function TeacherExam() {
                 <p className="text-2xl font-bold text-blue-600 mt-1">{g.record_count || 0}</p>
                 <p className="text-xs text-slate-500">测评次数</p>
                 <p className="text-sm font-medium text-slate-600 mt-1">
-                  {g.avg_score ? Math.round(g.avg_score) + '%' : '-'} 平均分
-                </p>
+                  {g.avg_score ? Math.round(g.avg_score) + '%' : '-'} 平均�?                </p>
               </div>
             ))}
           </div>
         </div>
       )}
 
-      {/* 筛选 */}
+      {/* 筛�?*/}
       <div className="glass-card rounded-3xl p-4">
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="relative flex-1">
@@ -223,18 +221,16 @@ export default function TeacherExam() {
                     </span>
                     <span className="flex items-center gap-1">
                       <ClipboardList size={14} />
-                      {exam.question_count}题
-                    </span>
+                      {exam.question_count}�?                    </span>
                     <span className="flex items-center gap-1">
                       <Users size={14} />
-                      {examRecords.length}人完成
-                    </span>
+                      {examRecords.length}人完�?                    </span>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="text-center">
                     <p className="text-2xl font-bold text-slate-800">{avgScore}%</p>
-                    <p className="text-xs text-slate-500">平均分</p>
+                    <p className="text-xs text-slate-500">平均�?/p>
                   </div>
                   {isExpanded ? <ChevronUp size={20} className="text-slate-400" /> : <ChevronDown size={20} className="text-slate-400" />}
                 </div>
@@ -243,7 +239,7 @@ export default function TeacherExam() {
               {/* 学生成绩 - 可展开 */}
               {isExpanded && examRecords.length > 0 && (
                 <div className="mt-4 pt-4 border-t border-slate-100">
-                  <h4 className="text-sm font-medium text-slate-700 mb-3">学生成绩 ({examRecords.length}人)</h4>
+                  <h4 className="text-sm font-medium text-slate-700 mb-3">学生成绩 ({examRecords.length}�?</h4>
                   <div className="overflow-x-auto">
                     <table className="w-full">
                       <thead>
@@ -294,8 +290,7 @@ export default function TeacherExam() {
               )}
               {isExpanded && examRecords.length === 0 && (
                 <div className="mt-4 pt-4 border-t border-slate-100 text-center py-4 text-sm text-slate-400">
-                  暂无学生完成此测评
-                </div>
+                  暂无学生完成此测�?                </div>
               )}
             </div>
           );

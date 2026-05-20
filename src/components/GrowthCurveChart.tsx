@@ -36,14 +36,14 @@ export default function GrowthCurveChart({ records }: GrowthCurveChartProps) {
     (a, b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
   );
 
-  const labels = sortedRecords.map((r, i) => `第${i + 1}次`);
+  const labels = sortedRecords.map((r, i) => `�?{i + 1}次`);
 
   const dimensions = [
     { key: 'cognitive', label: '认知能力', color: '#3b82f6', bgColor: 'rgba(59, 130, 246, 0.1)' },
-    { key: 'skill', label: '技能能力', color: '#22c55e', bgColor: 'rgba(34, 197, 94, 0.1)' },
+    { key: 'skill', label: '技能能�?, color: '#22c55e', bgColor: 'rgba(34, 197, 94, 0.1)' },
     { key: 'quality', label: '综合素养', color: '#f59e0b', bgColor: 'rgba(245, 158, 11, 0.1)' },
     { key: 'innovation', label: '创新思维', color: '#8b5cf6', bgColor: 'rgba(139, 92, 246, 0.1)' },
-    { key: 'collaboration', label: '协作沟通', color: '#ec4899', bgColor: 'rgba(236, 72, 153, 0.1)' },
+    { key: 'collaboration', label: '协作沟�?, color: '#ec4899', bgColor: 'rgba(236, 72, 153, 0.1)' },
     { key: 'ethics', label: 'AI伦理', color: '#14b8a6', bgColor: 'rgba(20, 184, 166, 0.1)' },
   ];
 
@@ -78,8 +78,7 @@ export default function GrowthCurveChart({ records }: GrowthCurveChartProps) {
           </div>
         </div>
         <p className="text-sm text-slate-500 text-center">
-          展示各能力维度随测评次数的变化趋势
-        </p>
+          展示各能力维度随测评次数的变化趋�?        </p>
       </div>
     );
   }
@@ -126,8 +125,7 @@ export default function GrowthCurveChart({ records }: GrowthCurveChartProps) {
         <Line data={data} options={options} />
       </div>
       <p className="text-sm text-slate-500 text-center">
-        展示各能力维度随测评次数的变化趋势
-      </p>
+        展示各能力维度随测评次数的变化趋�?      </p>
     </div>
   );
 }
