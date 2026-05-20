@@ -26,16 +26,8 @@ COPY package*.json ./
 # Install only production dependencies
 RUN npm ci --omit=dev
 
-# Copy built files from builder stage
-COPY --from=builder /app/api/dist ./api/dist
-
-# Copy any other necessary files
-COPY --from=builder /app/api/db ./api/db
-COPY --from=builder /app/api/services ./api/services
-COPY --from=builder /app/api/middleware ./api/middleware
-COPY --from=builder /app/api/routes ./api/routes
-COPY --from=builder /app/api/app.js ./api/app.js
-COPY --from=builder /app/api/server.js ./api/server.js
+# Copy the entire api directory with compiled dist folder
+COPY --from=builder /app/api ./api
 
 # Create data directory for SQLite
 RUN mkdir -p /app/data
