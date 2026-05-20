@@ -10,8 +10,12 @@ let db: Database<sqlite3.Database, sqlite3.Statement> | null = null;
 
 export async function getDb() {
   if (!db) {
+    // 使用环境变量指定的数据库路径，否则使用默认路径
+    const dbPath = process.env.DATABASE_URL || path.join(__dirname, '..', '..', 'data', 'data.sqlite');
+    console.log(`[DB] Using database path: ${dbPath}`);
+    
     db = await open({
-      filename: path.join(__dirname, '..', 'data', 'data.sqlite'),
+      filename: dbPath,
       driver: sqlite3.Database,
     });
     await db.run('PRAGMA foreign_keys = ON');

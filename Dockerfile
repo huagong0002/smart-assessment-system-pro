@@ -20,6 +20,9 @@ FROM node:20-alpine
 
 WORKDIR /app
 
+# Create data directory with proper permissions
+RUN mkdir -p /app/data && chmod -R 777 /app/data
+
 # Copy package files
 COPY package*.json ./
 
@@ -28,9 +31,6 @@ RUN npm ci --omit=dev
 
 # Copy the entire api directory with compiled dist folder
 COPY --from=builder /app/api ./api
-
-# Create data directory for SQLite
-RUN mkdir -p /app/data
 
 # Expose port
 EXPOSE $PORT
