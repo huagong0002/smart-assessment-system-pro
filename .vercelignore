@@ -1,6 +1,15 @@
 # 忽略后端 API 目录（已部署到 Render）
 api/
 
+# 忽略根目录下的脚本文件（可能被识别为 Serverless Functions）
+test-api.mjs
+test-api.js
+test-class-api.ts
+check-db.ts
+
+# 忽略测试目录
+tests/
+
 # 其他忽略文件
 node_modules/
 dist/
