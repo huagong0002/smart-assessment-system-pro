@@ -1,0 +1,60 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.vite
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Database
+data.sqlite
+*.sqlite
+*.db
+
+# Trae workspace
+.trae/
+
+# Database & data files
+data/
+data.sqlite.test-backup
+
+# Test & temporary files
+test-*.py
+verify-*.py
+test-*.md
+test-*.json
+FINAL-TEST-REPORT.md
+check-dup.mjs
+cleanup-exams.mjs
+dedup-questions.mjs
+verify-dedup.mjs
+
+# Screenshots & test artifacts
+tests/screenshots/
+
+# Build output
+dist
+build
