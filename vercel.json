@@ -1,9 +1,4 @@
 {
-  "functions": {
-    "api/**/*.{ts,js}": {
-      "runtime": "vercel-ignore"
-    }
-  },
   "buildCommand": "npm run build",
   "installCommand": "npm ci",
   "outputDirectory": "dist",
